@@ -1,0 +1,83 @@
+<!--Navigation bar-->
+<div id="topbar">
+    <nav id="navbar" >
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul id="overrideback" class="nav navbar-nav navbar-left">
+                    <li id="overrideback" class="dropdown">
+                        
+                        <a  id="overrideback" data-toggle="dropdown" role="button" aria-haspopup="true"  style="height: 55px; color:#4da6ff" aria-expanded="false"><span class="glyphicon glyphicon-menu-hamburger" style="height: 55px; color:#4da6ff"></span>
+                            <span class="caret"></span></a>
+                            <ul id="overrideback" class="dropdown-menu">
+                                <li><a routerLink="/home" id="overrideback" routerLinkActive="active">{{ 'HOME' | translate: lang }}</a></li> 
+                                <li role="separator" class="divider" ></li>
+                                 <li><a routerLink="/test"  id="overrideback"  routerLinkActive="active">{{ 'TEST_PAGE' | translate: lang }}</a></li>
+                                 <li><a routerLink="/addeditplayer"  id="overrideback"  routerLinkActive="active">{{ 'ADD_EDIT_PLAYER' | translate: lang }}</a></li>
+                                 <li><a routerLink="/addresults"  id="overrideback"  routerLinkActive="active">{{ 'ADD_RESULTS' | translate: lang }}</a></li>
+                                 <li><a routerLink="/addcompetition"  id="overrideback"  routerLinkActive="active">{{ 'ADD_COMPETITION' | translate: lang }}</a></li>
+
+    
+                            </ul>
+                    </li>
+                </ul>
+             
+            
+    
+    
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li id="overrideback" class="dropdown">
+                                <a id="overrideback" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" style="color:#4da6ff" aria-expanded="false">{{ displayedLocale | translate: lang }}
+                                    <span class="caret"></span></a>
+                                     <ul id="overrideback" class="dropdown-menu">
+                                        <li id="overrideback" (click)="selectLocale('it','IT', 'EUR' );"><img src="/assets/images/flags/it.png" style="margin-right:5px; width:15px" />{{ 'ITALIAN' | translate: lang }}</li>
+                                        <li id="overrideback" (click)="selectLocale('de','DE', 'EUR'); "><img src="/assets/images/flags/de.png" style="margin-right:5px; width:15px" />{{ 'GERMAN' | translate: lang }}</li>
+                                        <li id="overrideback" (click)="selectLocale('en','GB', 'GBP'); "><img src="/assets/images/flags/gb.png" style="margin-right:5px; width:15px" />{{ 'ENGLISH' | translate: lang }}</li>
+                                    </ul>
+                            </li>
+                        </ul>
+                        
+                        
+                        <ul class="nav navbar-nav navbar-right">
+                            <li (click)="openHelpAbout()"><a data-toggle="tooltip" id="overrideback" data-placement="left" title="{{ 'HELP_ABOUT' | translate: lang }}" ><span class="glyphicon glyphicon-book" style="color:#4da6ff" aria-hidden="false"></span></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li (click)="openSettingsWindow()"><a data-toggle="tooltip" id="overrideback" data-placement="left" title="{{ 'SETTINGS' | translate: lang }}" ><span class="glyphicon glyphicon-cog" style="color:#4da6ff" aria-hidden="false"></span></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li (click)="deleteRecord()"><a data-toggle="tooltip" id="overrideback" data-placement="left" title="{{ 'DELETE' | translate: lang }}" ><span class="glyphicon glyphicon-trash" style="color:#4da6ff" aria-hidden="false"></span></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li (click)="saveRecord()"><a data-toggle="tooltip" id="overrideback" data-placement="left" title="{{ 'SAVE' | translate: lang }}" ><span class="glyphicon glyphicon-floppy-disk" style="color:#4da6ff" aria-hidden="false"></span></a></li>
+                        </ul>
+
+                        <div *ngIf="isLoggedIn" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <!-- <label class="nav navbar-nav navbar-right">{{loggedInUser}}</label> -->
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a (click)="logout()">{{ 'LOGOUT' | translate: lang }} : {{loggedInUser}}</a></li>
+                            </ul>
+                        </div>
+
+                        
+    
+    
+                </div><!-- /.navbar-collapse -->
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    </div>
+    <!-- End Naviagation bar-->
+    
+    <!-- Angular Application will reside inside here-->
+    <div id="primarydisplayarea">
+    <router-outlet></router-outlet>
+    </div>
+    
+    
+    <modal (modalOutput)="modalOutput($event)">
+    </modal>
+      
+    
+    
+    

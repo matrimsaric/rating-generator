@@ -1,0 +1,22 @@
+<br/>
+<br/>
+<div style='margin-left:40px'>
+
+
+    <md-input-container>
+        <input mdInput #idFld placeholder="{{'ID' | translate: lang}}" style="width:200px" [(ngModel)]="id" disabled="false">
+    </md-input-container>
+    <button md-mini-fab class="lookupBtn" (click)="save()" title="{{'SAVE' | translate: lang}}">
+    <span class="glyphicon glyphicon-floppy-disk" id="look1"  aria-hidden="true"  ></span>
+    </button>
+    <br/>
+    <md-input-container>
+        <input mdInput #nameFld placeholder="{{'NAME' | translate: lang}}" style="width:400px" [(ngModel)]="name" disabled="false">
+    </md-input-container><br/>
+    <md-input-container>
+        <input mdInput #nameFld placeholder="{{'DATE_END' | translate: lang}}" style="width:400px" [(ngModel)]="dateEnd" disabled="false">
+    </md-input-container><br/>
+    <md-input-container>
+        <input mdInput #nameFld placeholder="{{'LOGO' | translate: lang}}" style="width:400px" [(ngModel)]="logo" disabled="false">
+    </md-input-container><br/>
+</div>

@@ -1,0 +1,18 @@
+.lookupBtn{
+    height: 28px;
+    width: 28px;
+    color: white;
+}
+
+#look1{
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+#look2{
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.example-radio-button{
+    width: 180px;
+}

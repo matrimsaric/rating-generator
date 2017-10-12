@@ -1,0 +1,137 @@
+@import 'deeppurple-amber.css';
+
+body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 12px;
+    }
+
+    #framebuttons {
+        float: right;
+    }
+
+    #main {
+        min-height: 650px;
+        margin: 0px;
+        flex-grow: 3;
+        padding: 0px;
+        display: flex;
+        flex-flow: row;
+        bottom: 20px;
+    }
+ 
+    #main > article {
+        margin: 0px;
+        padding: 0px;
+        border: 1px solid #8888bb;
+        border-radius: 7pt;
+        flex: 3 1 60%;
+        order: 2;
+    }
+
+    #main > nav {
+        margin: 4px;
+        padding: 5px;
+        border: 1px solid #8888bb;
+        background-color: ghostwhite;
+        border-radius: 7pt;
+        flex: 1 6 20%;
+        max-width: 320px;
+        order: 1;
+    }
+  
+    #main > aside {
+        margin: 4px;
+        padding: 1px;
+        border: 1px solid #8888bb;
+        border-radius: 7pt;
+        background: #ccccff;
+        flex: 1 6 20%;
+        order: 3;
+    }
+
+    #minibutton{
+    background-color: white;
+    height: 30px;
+    width: 100px;
+    color: black;
+    border-right-width: 1px;
+    border-right-color: #8c8c8c;
+    border-left-width: 0px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    float: left;
+}
+ 
+    header {
+        display: block;
+        margin: 4px;
+        height: 10px;
+        padding: 5px;
+        font-size: 16px;
+        border: 1px solid #eebb55;
+        border-radius: 7pt;
+        background: #ffeebb;
+    }
+
+    footer {
+        display: block;
+        margin: 4px;
+        padding: 5px;
+        border: 1px solid #eebb55;
+        border-radius: 7pt;
+        background: #ffeebb;
+    }
+ 
+    /* Too narrow to support three columns */
+    @media all and (max-width: 640px) {
+        #main, #page {
+            flex-direction: column;
+        }
+
+        #main > article, #main > nav, #main > aside {
+        /* Return them to document order */
+            order: 0;
+        }
+  
+        #main > nav, #main > aside, header, footer {
+            min-height: 50px;
+            max-height: 50px;
+        }
+    }
+
+#topbar{
+    height:55px;
+    color: green;
+}
+
+.glyphicon-menu-hamburger {
+  font-size: 25px;
+}
+
+#centereddiv {
+    width: 94%; 
+    margin: 0px auto;
+}
+
+#workerscroll{
+     overflow-y: auto;
+     overflow-x: auto;
+     height: 75%;
+}
+
+#primarydisplayarea{
+    flex-grow: 1;
+    background-color: White;
+}
+
+#navbar{
+    background-color: #404040;
+}
+
+
+
+
+
+
+
+

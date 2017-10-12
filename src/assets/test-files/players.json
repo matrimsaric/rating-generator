@@ -1,0 +1,744 @@
+[
+    {
+        "name": "Snowflame",
+        "id": 1,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Atelus",
+        "id": 2,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "umjammersully",
+        "id": 3,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "ShosuroKiseki",
+        "id": 4,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "gryffinp",
+        "id": 5,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Togashi Norikage",
+        "id": 6,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Grendel",
+        "id": 7,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "idlepigeon",
+        "id": 8,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Bayushi_Inukai",
+        "id": 9,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "darkdistroi",
+        "id": 10,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "treacharous",
+        "id": 11,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Chiefslee",
+        "id": 12,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "refbot",
+        "id": 13,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "GaijinNiku",
+        "id": 14,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Reiga",
+        "id": 15,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "grraaaahhh",
+        "id": 16,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "ipurbeltz",
+        "id": 17,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "ltmechanicus",
+        "id": 18,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Humblestmonk",
+        "id": 19,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Katai",
+        "id": 20,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "HaakonX",
+        "id": 21,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Disardor",
+        "id": 22,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Zetsubou",
+        "id": 23,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "BayushiYuuji",
+        "id": 24,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "VoidCircuit",
+        "id": 25,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Yogo_Isoroku",
+        "id": 26,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "qkieu",
+        "id": 27,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "zigkirby",
+        "id": 28,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "FlyingZergling",
+        "id": 29,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "GravyK",
+        "id": 30,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Tayrun",
+        "id": 31,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "glaiveguy",
+        "id": 32,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "MatrimSaric",
+        "id": 33,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "akizora",
+        "id": 34,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "SneakyBookshelf",
+        "id": 35,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Sanctus",
+        "id": 36,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Battoukiri",
+        "id": 37,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Liforre",
+        "id": 38,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "WhiteLiger",
+        "id": 39,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "the_eigensheep",
+        "id": 40,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "MadMonkZero",
+        "id": 41,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "wiley",
+        "id": 42,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "khift",
+        "id": 43,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Kakita Koutetsu",
+        "id": 44,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "TaoOfBees",
+        "id": 45,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "foxhound657",
+        "id": 46,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Hateru Eun",
+        "id": 47,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "bill_jr",
+        "id": 48,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Raffesia",
+        "id": 49,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Kakita_Minto",
+        "id": 50,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Kitsuki Chen",
+        "id": 51,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Chutereve",
+        "id": 52,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Gaffa",
+        "id": 53,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Skylok",
+        "id": 54,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Troutninja",
+        "id": 55,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Arkhonai",
+        "id": 56,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Joeski",
+        "id": 57,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "mirith",
+        "id": 58,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Isawa Tensen",
+        "id": 59,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "grokdisco",
+        "id": 60,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "nightcrawlers",
+        "id": 61,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Random_Ide",
+        "id": 62,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Argelius",
+        "id": 63,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "crowofgames",
+        "id": 64,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "HidaYama",
+        "id": 65,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "decpticle",
+        "id": 66,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Asako Kaze",
+        "id": 67,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Deviant",
+        "id": 68,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Grody",
+        "id": 69,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Kiss_Shot",
+        "id": 70,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Kieken",
+        "id": 71,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Ebolabear",
+        "id": 72,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "raulendymion",
+        "id": 73,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "shosuko",
+        "id": 74,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "HidaMoZi",
+        "id": 75,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "BayushiCurtin",
+        "id": 76,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "dark293",
+        "id": 77,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Bayushi_Shoju",
+        "id": 78,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "roganazrael",
+        "id": 79,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "JoeFromCincinnati",
+        "id": 80,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Kitsuki_Kaigen",
+        "id": 81,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "JT_Marsh",
+        "id": 82,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Shiba Stone",
+        "id": 83,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "WHW",
+        "id": 84,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Travis_Fights_Dragons",
+        "id": 85,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Isawa_Mikoto",
+        "id": 86,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Yasuki Hachi",
+        "id": 87,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Shiba Derp",
+        "id": 88,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Heinzel",
+        "id": 89,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Wosho",
+        "id": 90,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "pimittens",
+        "id": 91,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "KibagamiJubei",
+        "id": 92,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Kitsuki_Date",
+        "id": 93,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "IMABUNNEH",
+        "id": 94,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Elmios",
+        "id": 95    ,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "blackheartz",
+        "id": 96,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Bytor5",
+        "id": 97,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "BigBellyJarelli",
+        "id": 98,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "rwmwaffle",
+        "id": 99,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Etaywah",
+        "id": 100,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "John_Hawk_Hawkins",
+        "id": 101,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "BTrain",
+        "id": 102,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Shosuro Sakuya",
+        "id": 103,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Nessimon",
+        "id": 104,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "Shosuro_Croy",
+        "id": 105,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    },
+    {
+        "name": "ogreymana",
+        "id": 106,
+        "rating": 1500,
+        "deviation": 300,
+        "volatility": 0.06
+    }
+]

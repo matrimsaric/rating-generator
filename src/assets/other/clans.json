@@ -1,0 +1,42 @@
+[
+    {
+        "id": -1,
+        "name": "UNKNOWN",
+        "logo": "/assets/images/clans/neutralClan.png"
+    },
+    {
+        "id": 1,
+        "name": "CRAB",
+        "logo": "/assets/images/clans/crabClan.png"
+    },
+    {
+        "id": 2,
+        "name": "CRANE",
+        "logo": "/assets/images/clans/craneClan.png"
+    },
+    {
+        "id": 3,
+        "name": "DRAGON",
+        "logo": "/assets/images/clans/dragonClan.png"
+    },
+    {
+        "id": 4,
+        "name": "LION",
+        "logo": "/assets/images/clans/lionClan.png"
+    },
+    {
+        "id": 5,
+        "name": "PHOENIX",
+        "logo": "/assets/images/clans/phoenixClan.png"
+    },
+    {
+        "id": 6,
+        "name": "SCORPION",
+        "logo": "/assets/images/clans/scorpionClan.png"
+    },
+    {
+        "id": 7,
+        "name": "UNICORN",
+        "logo": "/assets/images/clans/unicornClan.png"
+    }
+]
