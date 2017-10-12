@@ -32,11 +32,12 @@ import { CompetitionEntryComponent } from './features/competition-entry/competit
 
 // must export the firebase config
 export const firebaseConfig = {
-    apiKey: 'AIzaSyBQRJ17P_DoiWQyCCTwa9WOmNqtstfNqeM',
-    authDomain: 'scenario-tracker.firebaseapp.com',
-    databaseURL: 'https://scenario-tracker.firebaseio.com',
-    storageBucket: 'scenario-tracker.appspot.com',
-    messagingSenderId: '745070450033'
+  apiKey: "AIzaSyBIS6XyHpcPQmLXHuhA2p0cBrdr1rOTg54",
+  authDomain: "lr5-league.firebaseapp.com",
+  databaseURL: "https://lr5-league.firebaseio.com",
+  projectId: "lr5-league",
+  storageBucket: "lr5-league.appspot.com",
+  messagingSenderId: "1025193056646"
 };
 
 @NgModule({

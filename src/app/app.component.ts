@@ -34,7 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
   constructor(public localization: TranslationService,
                private locale: LocaleService,
               private _messenger: MessagingService,
-            //   private _firebase: FirebaseService,
+              private _firebase: FirebaseService,
               private _router: Router,
               private _globals: GlobalService){
                 switch(this.locale.getCurrentLocale()){
@@ -53,25 +53,25 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void{
     this.broadcastSubscription = this._messenger.broadcastMessage.subscribe(message => this.onMessageReceived(message));
 
-    // this._firebase.loginWithGoogle();
-    //     this.isLoggedIn = true;
-    // this._firebase.af.authState.subscribe(
-    //     (auth) => {
-    //       if(auth == null) {
-    //         console.log("Not Logged in.");
-    //         this._router.navigate(['login']);
-    //         this.isLoggedIn = false;
-    //       }
-    //       else {
-    //         console.log("Successfully Logged in.");
-    //         this.isLoggedIn = true;
-    //         this.loggedInUser = auth.displayName;
-    //         // UPDATE: I forgot this at first. Without it when a user is logged in and goes directly to /login
-    //         // the user did not get redirected to the home page.
-    //         this._router.navigate(['']);
-    //       }
-    //     }
-    //   );
+    this._firebase.loginWithGoogle();
+        this.isLoggedIn = true;
+    this._firebase.af.authState.subscribe(
+        (auth) => {
+          if(auth == null) {
+            console.log("Not Logged in.");
+            this._router.navigate(['login']);
+            this.isLoggedIn = false;
+          }
+          else {
+            console.log("Successfully Logged in.");
+            this.isLoggedIn = true;
+            this.loggedInUser = auth.displayName;
+            // UPDATE: I forgot this at first. Without it when a user is logged in and goes directly to /login
+            // the user did not get redirected to the home page.
+            this._router.navigate(['']);
+          }
+        }
+      );
   }
 
   ngOnDestroy(): void{

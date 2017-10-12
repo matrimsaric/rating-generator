@@ -7,6 +7,7 @@ import { AngularFireAuth, AngularFireAuthProvider } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 
+import { Player } from '../app-resources/spine/player';
 // import { Scenario } from '../spine/scenario';
 // import { Map } from '../spine/map';
 
@@ -36,6 +37,14 @@ export class FirebaseService {
    */
   logout() {
     return this.af.auth.signOut();
+  }
+
+  savePlayer(newUser: Player): void{
+    let saveData: string = JSON.stringify(newUser);
+
+    this.af.app.database().ref('players/'+newUser.id).set({
+      saveData
+    });
   }
 
 //   saveScenario(saveScenario: Scenario): void{

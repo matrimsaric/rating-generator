@@ -6,7 +6,7 @@
     <md-input-container>
         <input mdInput #idFld placeholder="{{'ID' | translate: lang}}" style="width:200px" [(ngModel)]="player.id" disabled="false">
     </md-input-container>
-    <button md-mini-fab class="lookupBtn" (click)="save()" title="{{'SAVE' | translate: lang}}">
+    <button md-mini-fab class="lookupBtn" (click)="savePlayer()" title="{{'SAVE' | translate: lang}}">
     <span class="glyphicon glyphicon-floppy-disk" id="look1"  aria-hidden="true"  ></span>
     </button>
     <br/>

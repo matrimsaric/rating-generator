@@ -7,6 +7,8 @@ import { Player } from '../app-resources/spine/player';
 import { Match } from '../app-resources/spine/match';
 import { Clan } from '../app-resources/spine/clan';
 
+import { FirebaseService } from './firebase.service';
+
 @Injectable()
 export class PlayerService {
 
@@ -14,7 +16,8 @@ export class PlayerService {
  private _matchUrl = '/assets/test-files/results.json';
  private _clanUrl = '/assets/other/clans.json';
 
-  constructor(  private _http: Http  ) { }
+  constructor(  private _http: Http,
+                private _firebase: FirebaseService  ) { }
 
   public loadPlayerData() : Observable<Player[]> {
     return this._http.get(this._playerUrl)
@@ -37,6 +40,10 @@ export class PlayerService {
         .catch(error => this.handleError(error));
   }
 
+  public savePlayer(newPlayer: Player): void{
+    this._firebase.savePlayer(newPlayer);
+  }
+
   private handleError(error: any){
     // translate error message into valid json
      var retError: any = error;
@@ -46,5 +53,7 @@ export class PlayerService {
     
     return Observable.throw(error.json().error || 'Server error');
     }
+
+    
 
 }

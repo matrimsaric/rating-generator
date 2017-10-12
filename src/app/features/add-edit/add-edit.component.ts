@@ -60,6 +60,11 @@ export class AddEditComponent implements OnInit {
     }
   }
 
+  private savePlayer(): void{
+      this._players.savePlayer(this.player);
+      this.player = new Player();
+  }
+
   
 
 }
