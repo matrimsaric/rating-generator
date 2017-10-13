@@ -47,7 +47,7 @@ export class AddEditComponent implements OnInit {
       this.player.clanId = newClan.id;
 
       
-      this.clanName = this._translator.translate(newClan.name);
+      
       this.getClan(newClan.id);
   }
 
@@ -61,12 +61,33 @@ export class AddEditComponent implements OnInit {
         var foundClan: any = this.clans.filter(clanRec => clanRec.id == -1);
         this.playerClan = foundClan;
     }
+    this.clanName = this._translator.translate(this.playerClan.name);
   }
 
   private savePlayer(): void{
       this._players.savePlayer(this.player);
-      this.player = new Player();
+      //this.player = new Player();
   }
+
+  private forward(): void{
+      if(!this.player.id && this.player.id < 1){
+          this.player.id = 1;
+      } else{
+          this.player.id = this.player.id + 1;
+      }
+
+      this.onIdEnter();
+  }
+
+  private back(): void{
+    if(this.player.id < 1){
+        this.player.id = 1;
+    } else{
+        this.player.id = this.player.id - 1;
+    }
+
+    this.onIdEnter();
+}
 
   private onIdEnter(): void{
       // when enter pressed on an id field IF the id is set then attempt
@@ -75,13 +96,18 @@ export class AddEditComponent implements OnInit {
         var recordReference: string = "players/"+this.player.id;
         // get all map data
         this._firebase.af.app.database().ref(recordReference).once('value').then(data => {
-            var play = data.val();
-            this.player = <Player>data.val();
-                    
+            var play: any =  JSON.parse(data.val().saveData);
+            this.player = new Player();
+            this.player.id = +play.id;
+            this.player.clanId = play.clanId;
+            this.player.tag = play.tag;
+            this.getClan(this.player.clanId);       
           })
 
             
       }
+
+      
   }
 
 

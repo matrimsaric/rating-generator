@@ -1,6 +1,7 @@
 export class Player {
     name: string;
     id: number;
+    tag: string;
     rating: number = 1500;
     deviation: number = 300;
     volatility: number = 0.6;

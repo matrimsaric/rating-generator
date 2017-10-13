@@ -4,7 +4,7 @@
 
 
     <md-input-container>
-        <input mdInput #idFld placeholder="{{'COMP' | translate: lang}}" style="width:100px" [(ngModel)]="competitionId" disabled="false">
+        <input mdInput #idFld (keyup.enter)="onCompetitionIdEnter()" placeholder="{{'COMP' | translate: lang}}" style="width:100px" [(ngModel)]="competitionId" disabled="false">
     </md-input-container>
     <md-input-container>
         <input mdInput #idNameFld placeholder="{{'COMP_NAME' | translate: lang}}" style="width:200px" [(ngModel)]="competitionName" disabled="false">
@@ -17,10 +17,17 @@
     </button>
     <br/>
     <md-input-container>
-        <input mdInput #nameFld placeholder="{{'PLAYER1ID' | translate: lang}}" style="width:400px" [(ngModel)]="player1Id" disabled="false">
-    </md-input-container><br/>
+        <input mdInput #id1 (keyup.enter)="onPlayerOneEnter()" placeholder="{{'PLAYER1ID' | translate: lang}}" style="width:100px" [(ngModel)]="playerOne.id" disabled="false">
+    </md-input-container>
     <md-input-container>
-        <input mdInput #nameFld placeholder="{{'PLAYER2ID' | translate: lang}}" style="width:400px" [(ngModel)]="player2Id" disabled="false">
+        <input mdInput #nameFld1 placeholder="{{'PLAYER1NAME' | translate: lang}}" style="width:100px" [(ngModel)]="playerOne.tag" disabled="false">
+    </md-input-container><br/>
+   
+     <md-input-container>
+        <input mdInput #id2 (keyup.enter)="onPlayerTwoEnter()" placeholder="{{'PLAYER2ID' | translate: lang}}" style="width:100px" [(ngModel)]="playerTwo.id" disabled="false">
+    </md-input-container>
+    <md-input-container>
+        <input mdInput #nameFld2 placeholder="{{'PLAYER2NAME' | translate: lang}}" style="width:100px" [(ngModel)]="playerTwo.tag" disabled="false">
     </md-input-container><br/>
     <md-checkbox
         class="example-margin"

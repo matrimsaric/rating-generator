@@ -1,31 +1,61 @@
 <br/>
 <br/>
-<div style='margin-left:40px'>
+<div class="container">
+    <div class="row">
+          <div class="col-xs-6">
+                <!-- <div style='margin-left:40px'> -->
 
 
-    <md-input-container>
-        <input mdInput #idFld (keyup.enter)="onIdEnter()"placeholder="{{'ID' | translate: lang}}" style="width:200px" [(ngModel)]="player.id" disabled="false">
-    </md-input-container>
-    <button md-mini-fab class="lookupBtn" (click)="savePlayer()" title="{{'SAVE' | translate: lang}}">
-    <span class="glyphicon glyphicon-floppy-disk" id="look1"  aria-hidden="true"  ></span>
-    </button>
-    <br/>
-    <md-input-container>
-        <input mdInput #nameFld placeholder="{{'TAG' | translate: lang}}" style="width:400px" [(ngModel)]="player.tag" disabled="false">
-    </md-input-container><br/>
-    <md-input-container>
-        <input mdInput #nameFld placeholder="{{'NAME' | translate: lang}}" style="width:400px" [(ngModel)]="player.name" disabled="false">
-    </md-input-container><br/>
-    <md-input-container>
-        <input mdInput #nameFld placeholder="{{'ACTIVE_CLAN' | translate: lang}}" style="width:400px" value="{{clanName}}" disabled="true">
-    </md-input-container><br/><br/>
-    <md-list style="min-height: 200px">
-        <md-list-item *ngFor="let clan of clans">
-            <img matListAvatar src="{{clan.logo}}" alt="clan.name" style="width:20px; height:20px; margin-right:20px">
-             {{clan.name}} 
-            <button md-icon-button style="color:lightblue" id="look2" (click)="changeClan(clan)">
-                <span class="glyphicon glyphicon-plus"   aria-hidden="true"  ></span>
-             </button>
-        </md-list-item>
-    </md-list>
+                    <md-input-container>
+                        <input mdInput #idFld (keyup.enter)="onIdEnter()" placeholder="{{'ID' | translate: lang}}" style="width:200px" [(ngModel)]="player.id" disabled="false">
+                    </md-input-container>
+                    <button md-mini-fab class="lookupBtn" (click)="savePlayer()" title="{{'SAVE' | translate: lang}}">
+                    <span class="glyphicon glyphicon-floppy-disk" id="look1"  aria-hidden="true"  ></span>
+                    </button>
+                    <br/>
+                    <md-input-container>
+                        <input mdInput #nameFld placeholder="{{'TAG' | translate: lang}}" style="width:400px" [(ngModel)]="player.tag" disabled="false">
+                    </md-input-container><br/>
+                    <md-input-container>
+                        <input mdInput #nameFld placeholder="{{'NAME' | translate: lang}}" style="width:400px" [(ngModel)]="player.name" disabled="false">
+                    </md-input-container><br/>
+                    <md-input-container>
+                        <input mdInput #nameFld placeholder="{{'ACTIVE_CLAN' | translate: lang}}" style="width:400px" value="{{clanName}}" disabled="true">
+                    </md-input-container><br/><br/>
+                    <md-list style="min-height: 200px">
+                        <md-list-item *ngFor="let clan of clans">
+                            <img matListAvatar src="{{clan.logo}}" alt="clan.name" style="width:20px; height:20px; margin-right:20px">
+                            {{clan.name}} 
+                            <button md-icon-button style="color:lightblue" id="look2" (click)="changeClan(clan)">
+                                <span class="glyphicon glyphicon-plus"   aria-hidden="true"  ></span>
+                            </button>
+                        </md-list-item>
+                    </md-list><br/><br/>
+                <!-- </div><br/> -->
+                <button (click)="back()">B</button>
+                <button (click)="forward()">F</button>
+            </div>
+            <div class="col-xs-6">
+                    <md-input-container>
+                        <input mdInput #ratingFld placeholder="{{'RATING' | translate: lang}}" style="width:200px" [(ngModel)]="player.rating" disabled="true">
+                    </md-input-container><br/>
+                    <md-input-container>
+                        <input mdInput #ratingFld placeholder="{{'DEVIATION' | translate: lang}}" style="width:200px" [(ngModel)]="player.deviation" disabled="true">
+                    </md-input-container><br/>
+                    <md-input-container>
+                        <input mdInput #ratingFld placeholder="{{'VOLATILITY' | translate: lang}}" style="width:200px" [(ngModel)]="player.volatility" disabled="true">
+                    </md-input-container><br/><br/>
+                    <md-input-container>
+                        <input mdInput #ratingFld placeholder="{{'OLD_RATING' | translate: lang}}" style="width:200px" [(ngModel)]="player.oldRating" disabled="true">
+                    </md-input-container><br/>
+                    <md-input-container>
+                        <input mdInput #ratingFld placeholder="{{'OLD_DEVIATION' | translate: lang}}" style="width:200px" [(ngModel)]="player.oldDeviation" disabled="true">
+                    </md-input-container><br/>
+                    <md-input-container>
+                        <input mdInput #ratingFld placeholder="{{'OLD_VOLATILITY' | translate: lang}}" style="width:200px" [(ngModel)]="player.oldVolatility" disabled="true">
+                    </md-input-container><br/>
+            </div>
+
+    </div>
 </div>
+
