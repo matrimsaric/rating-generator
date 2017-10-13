@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Player } from '../../app-resources/spine/player';
 import { Clan } from '../../app-resources/spine/clan';
 import { PlayerService } from '../../app-services/player.service';
+import { FirebaseService } from '../../app-services/firebase.service';
+
 
 // language
 import { Language, TranslationService } from 'angular-l10n';
@@ -23,7 +25,8 @@ export class AddEditComponent implements OnInit {
     
 
   constructor   (private _players: PlayerService,
-                private _translator: TranslationService) { }
+                private _translator: TranslationService,
+                private _firebase: FirebaseService) { }
 
   ngOnInit() {
         this._players.loadClansData()
@@ -64,6 +67,24 @@ export class AddEditComponent implements OnInit {
       this._players.savePlayer(this.player);
       this.player = new Player();
   }
+
+  private onIdEnter(): void{
+      // when enter pressed on an id field IF the id is set then attempt
+      // to load that id
+      if(this.player && this.player.id){
+        var recordReference: string = "players/"+this.player.id;
+        // get all map data
+        this._firebase.af.app.database().ref(recordReference).once('value').then(data => {
+            var play = data.val();
+            this.player = <Player>data.val();
+                    
+          })
+
+            
+      }
+  }
+
+
 
   
 

@@ -16,6 +16,8 @@ export class PlayerService {
  private _matchUrl = '/assets/test-files/results.json';
  private _clanUrl = '/assets/other/clans.json';
 
+ private errorMessage: string = "";
+
   constructor(  private _http: Http,
                 private _firebase: FirebaseService  ) { }
 
@@ -43,6 +45,10 @@ export class PlayerService {
   public savePlayer(newPlayer: Player): void{
     this._firebase.savePlayer(newPlayer);
   }
+
+
+
+ 
 
   private handleError(error: any){
     // translate error message into valid json

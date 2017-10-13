@@ -47,6 +47,15 @@ export class FirebaseService {
     });
   }
 
+  loadPlayer(playerId: number): any{
+        var result: any;
+        var recordReference: string = "players/"+playerId;
+        // get all map data
+        this.af.app.database().ref(recordReference).once('value').then(data => {
+              return data.val();
+          })
+  }
+
 //   saveScenario(saveScenario: Scenario): void{
 //         let saveData: string = JSON.stringify(saveScenario);
 
