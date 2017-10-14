@@ -28,6 +28,7 @@ import { LoginComponent } from './features/admin/login/login.component';
 import { AddEditComponent } from './features/add-edit/add-edit.component';
 import { AddResultComponent } from './features/add-result/add-result.component';
 import { CompetitionEntryComponent } from './features/competition-entry/competition-entry.component';
+import { GameReportComponent } from './features/game-report/game-report.component';
 
 
 // must export the firebase config
@@ -50,7 +51,8 @@ export const firebaseConfig = {
     LoginComponent,
     AddEditComponent,
     AddResultComponent,
-    CompetitionEntryComponent
+    CompetitionEntryComponent,
+    GameReportComponent
   ],
   imports: [
     BrowserModule,

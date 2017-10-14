@@ -1,8 +1,6 @@
 <br/>
 <br/>
 <div style='margin-left:40px'>
-
-
     <md-input-container>
         <input mdInput #idFld (keyup.enter)="onCompetitionIdEnter()" placeholder="{{'COMP' | translate: lang}}" style="width:100px" [(ngModel)]="competitionId" disabled="false">
     </md-input-container>
@@ -16,6 +14,9 @@
     <span class="glyphicon glyphicon-plus" id="look1"  aria-hidden="true"  ></span>
     </button>
     <br/>
+    <md-input-container>
+        <input mdInput #rdFld placeholder="{{'ROUND' | translate: lang}}" style="width:200px" [(ngModel)]="competitionRound" disabled="false">
+    </md-input-container><br/>
     <md-input-container>
         <input mdInput #id1 (keyup.enter)="onPlayerOneEnter()" placeholder="{{'PLAYER1ID' | translate: lang}}" style="width:100px" [(ngModel)]="playerOne.id" disabled="false">
     </md-input-container>
@@ -39,4 +40,7 @@
         [(ngModel)]="draw">
         {{'DRAW' | translate: lang}}
     </md-checkbox><br/>
+</div>
+<div *ngFor="let displayThisMatch of displayMatchList">
+    <app-game-report [dispMatch]="displayThisMatch"></app-game-report>
 </div>

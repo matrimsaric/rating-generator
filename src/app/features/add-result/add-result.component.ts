@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { FirebaseService } from '../../app-services/firebase.service';
 import { Player } from '../../app-resources/spine/player';
+import { Match } from '../../app-resources/spine/match';
+import { GameReportComponent } from '../game-report/game-report.component';
 
 @Component({
   selector: 'app-add-result',
@@ -12,14 +14,40 @@ export class AddResultComponent implements OnInit {
 
     private competitionId: string = "";
     private competitionName: string = "";
+    private competitionRound: string = "General";
     private playerOne: Player = new Player();
     private playerTwo: Player = new Player();
     private player1Won: any;
     private draw: any;
+    private matchList: Match[] = [];// initialise here
+    private displayMatchList: any[] = [];// holds match and supporting players for sub window to display
 
   constructor(private _firebase: FirebaseService) { }
 
   ngOnInit() {
+  }
+
+  private save(): void{
+    console.log("implement save protection for when data not entered before save pressed");
+    // generate match result then add to list (which will auto add to the report children)
+    var newMatch: Match = new Match();
+    newMatch.description = this.competitionRound;
+    newMatch.id1 = this.playerOne.id;
+    newMatch.id2 = this.playerTwo.id;
+    if(this.player1Won == true){
+      newMatch.result = 1;
+    } else {
+      newMatch.result = 0;
+    }
+    this.matchList.push(newMatch);
+    var display: any = {
+      "match": newMatch,
+      "player1": this.playerOne,
+      "player2": this.playerTwo
+    };
+
+    this.displayMatchList.push(display);
+
   }
 
   private onCompetitionIdEnter(): void{
