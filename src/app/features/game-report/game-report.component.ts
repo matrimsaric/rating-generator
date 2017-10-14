@@ -37,8 +37,8 @@ export class GameReportComponent implements OnInit {
   }
 
   private buildData(): void{
-    this.player1Stats = `[${this.player1.rating}]`;
-    this.player2Stats = `[${this.player2.rating}]`;
+    this.player1Stats = `(${this.player1.id})[${this.player1.rating}]`;
+    this.player2Stats = `(${this.player2.id})[${this.player2.rating}]`;
 
     switch(this.match.result){
       case 0:

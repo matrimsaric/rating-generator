@@ -10,9 +10,15 @@
     <button md-mini-fab class="lookupBtn" (click)="openLookup('competition')" title="{{'VIEW_COMP' | translate: lang}}">
         <span class="glyphicon glyphicon-zoom-in" id="look1"  aria-hidden="true"  ></span>
     </button>
-    <button md-mini-fab class="lookupBtn" (click)="save()" title="{{'ADD' | translate: lang}}">
+    <button md-mini-fab class="lookupBtn" (click)="add()" title="{{'ADD' | translate: lang}}">
     <span class="glyphicon glyphicon-plus" id="look1"  aria-hidden="true"  ></span>
     </button>
+    <button md-mini-fab class="lookupBtn" (click)="save()" title="{{'SAVE' | translate: lang}}">
+    <span class="glyphicon glyphicon-floppy-disk" id="look1"  aria-hidden="true"  ></span>
+    </button>
+    <button md-mini-fab class="lookupBtn" (click)="clearAll()" title="{{'CLEAR' | translate: lang}}">
+            <span class="glyphicon glyphicon-minus" id="look1"  aria-hidden="true"  ></span>
+            </button>
     <br/>
     <md-input-container>
         <input mdInput #rdFld placeholder="{{'ROUND' | translate: lang}}" style="width:200px" [(ngModel)]="competitionRound" disabled="false">
@@ -39,7 +45,11 @@
         class="example-margin"
         [(ngModel)]="draw">
         {{'DRAW' | translate: lang}}
-    </md-checkbox><br/>
+    </md-checkbox>
+    <button md-mini-fab class="lookupBtn" (click)="commit()" title="{{'COMMIT' | translate: lang}}">
+        <span class="glyphicon glyphicon-floppy-disk" id="look1"  aria-hidden="true"  ></span>
+    </button>
+    <br/>
 </div>
 <div *ngFor="let displayThisMatch of displayMatchList">
     <app-game-report [dispMatch]="displayThisMatch"></app-game-report>

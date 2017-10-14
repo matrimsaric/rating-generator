@@ -55,6 +55,14 @@ export class FirebaseService {
         });
   }
 
+  saveCompetitionResults(compResults: any, compId: string): void{
+    let saveData: string = JSON.stringify(compResults);
+
+    this.af.app.database().ref('competition-results/'+compId).set({
+      saveData
+    });console.log(saveData);
+  }
+
   loadPlayer(playerId: number): any{
         var result: any;
         var recordReference: string = "players/"+playerId;

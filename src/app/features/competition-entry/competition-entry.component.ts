@@ -23,7 +23,8 @@ export class CompetitionEntryComponent implements OnInit {
       "name": this.name,
       "id": this.id,
       "logo": this.logo,
-      "dateEnd": this.dateEnd
+      "dateEnd": this.dateEnd,
+      "committed": false
     };
 
     this._firebase.saveCompetition(compObject);
