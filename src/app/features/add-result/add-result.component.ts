@@ -157,6 +157,7 @@ export class AddResultComponent implements OnInit {
   }
 
   private save(): void{
+    //this.displayMatchList = this.displayMatchList.slice(0, 172);
     this._firebase.saveCompetitionResults(this.displayMatchList, this.competitionId);
   }
 

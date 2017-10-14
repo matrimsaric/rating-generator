@@ -51,6 +51,8 @@
     </button>
     <br/>
 </div>
-<div *ngFor="let displayThisMatch of displayMatchList">
+<div style="height:500px;  overflow-y: scroll;" >
+<div *ngFor="let displayThisMatch of displayMatchList" >
     <app-game-report [dispMatch]="displayThisMatch"></app-game-report>
+</div>
 </div>
