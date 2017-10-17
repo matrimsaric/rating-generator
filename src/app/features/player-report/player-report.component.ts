@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Player } from '../../app-resources/spine/player';
 import { FirebaseService } from '../../app-services/firebase.service';
 
+import { GameReportComponent } from '../game-report/game-report.component';
+
 // language
 import { Language, TranslationService } from 'angular-l10n';
 
@@ -18,6 +20,7 @@ export class PlayerReportComponent implements OnInit {
     private clanName: string;
     private currentClanImage: string;
     private ninetyFive: string;
+    private matches: any;
 
   constructor(private _translator: TranslationService,
                 private _firebase: FirebaseService) { }
@@ -63,7 +66,14 @@ export class PlayerReportComponent implements OnInit {
           this.calcRank();
           this.calcNinetyFivePercent();
           this.getClanImage();
-        })
+        });
+
+        // load matches as well
+        var matchReference: string = "player-match-results/"+this.player.id;
+        this._firebase.af.app.database().ref(matchReference).once('value').then(data => {
+          this.matches = JSON.parse(data.val().saveData);
+          console.log(this.matches);
+        });
 
           
     }

@@ -79,7 +79,7 @@ export class AddResultComponent implements OnInit {
     var display: any = {
       "match": newMatch,
       "player1": newp1,
-      "player2": newp2
+      "player2": newp2,
     };
 
     this.displayMatchList.push(display);
@@ -200,8 +200,19 @@ export class AddResultComponent implements OnInit {
               // set new values
               tempPlayer.rating = foundPlayer[0].glicko.getRating();
               tempPlayer.deviation = foundPlayer[0].glicko.getRd();
-              this._firebase.savePlayer(tempPlayer);
+              //this._firebase.savePlayer(tempPlayer);
               console.log(`${tempPlayer.tag}  -  ${foundPlayer[0].glicko.getRating()}`);
+
+              // get list of matches
+              var foundMatches: any = this.displayMatchList.filter(matchRec => matchRec.player1.id == tempPlayer.id || matchRec.player2.id == tempPlayer.id);
+              if(foundMatches){
+                console.log(foundMatches);
+                this._firebase.savePlayerMatchResults(foundMatches, tempPlayer.id.toString());
+              }
+
+
+              
+              
           }
 
           
