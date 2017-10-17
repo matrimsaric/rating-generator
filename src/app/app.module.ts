@@ -18,6 +18,7 @@ import { DialogDirective } from './app-resources/common/modal-dialog/dialog.dire
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AgGridModule } from "ag-grid-angular/main";
 
 
 import { AppComponent } from './app.component';
@@ -29,6 +30,8 @@ import { AddEditComponent } from './features/add-edit/add-edit.component';
 import { AddResultComponent } from './features/add-result/add-result.component';
 import { CompetitionEntryComponent } from './features/competition-entry/competition-entry.component';
 import { GameReportComponent } from './features/game-report/game-report.component';
+import { CurrentStandingsComponent } from './features/current-standings/current-standings.component';
+import { PlayerReportComponent } from './features/player-report/player-report.component';
 
 
 // must export the firebase config
@@ -52,7 +55,9 @@ export const firebaseConfig = {
     AddEditComponent,
     AddResultComponent,
     CompetitionEntryComponent,
-    GameReportComponent
+    GameReportComponent,
+    CurrentStandingsComponent,
+    PlayerReportComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,8 @@ export const firebaseConfig = {
     TranslationModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AgGridModule.withComponents([])
   ],
   providers: [
     TranslationService,

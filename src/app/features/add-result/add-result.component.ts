@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FirebaseService } from '../../app-services/firebase.service';
+import { GlobalService } from '../../app-services/global.service';
 import { Player } from '../../app-resources/spine/player';
 import { Match } from '../../app-resources/spine/match';
 import { GameReportComponent } from '../game-report/game-report.component';
@@ -35,7 +36,8 @@ export class AddResultComponent implements OnInit {
   private glicko: any;
   private players: any[] = [];
 
-  constructor(private _firebase: FirebaseService) { }
+  constructor(  private _firebase: FirebaseService,
+                private _globals: GlobalService) { }
 
   ngOnInit() {
 
@@ -101,11 +103,18 @@ export class AddResultComponent implements OnInit {
       // also try and load any results
       var idReference: string = "competition-results/"+this.competitionId;
 
-      this._firebase.af.app.database().ref(idReference).once('value').then(data => {
-        var comp: any =  JSON.parse(data.val().saveData);
-        this.buildList(comp);
+      if(this._globals.savedResults){
+          this.buildList(this._globals.savedResults);
+      }
+      else{
+        this._firebase.af.app.database().ref(idReference).once('value').then(data => {
+            var comp: any =  JSON.parse(data.val().saveData);
+            this.buildList(comp);
+    
+        });
+      }
 
-    });
+      
           
     }
   }
@@ -113,6 +122,9 @@ export class AddResultComponent implements OnInit {
   private buildList(data: any): void{
     this.matchList = [];
     this.displayMatchList = [];
+
+    // set globals so we dont (potentially) have to reload
+    this._globals.savedResults = data;
 
     this.displayMatchList = data;
     for(var c: number = 0; c < data.length; c++){

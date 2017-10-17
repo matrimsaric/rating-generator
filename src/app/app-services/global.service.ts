@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 
-
+import { Player } from '../app-resources/spine/player';
 
 
 @Injectable()
 export class GlobalService {
 
   public dialogResult: any;
+  public savedResults: any; // storage space for results
+  public savedPlayers: Player[] = [];// storage space for players
 
 
 

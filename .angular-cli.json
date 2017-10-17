@@ -20,7 +20,9 @@
       "prefix": "app",
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "./assets/css/styles.css"
+        "./assets/css/styles.css",
+        "../node_modules/ag-grid/dist/styles/ag-grid.css",
+        "../node_modules/ag-grid/dist/styles/theme-fresh.css"
       ],
       "scripts": [
         "../node_modules/glicko2/glicko2.js",

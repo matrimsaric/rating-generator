@@ -1,0 +1,60 @@
+<md-tab-group [selectedIndex]="selectedTab" (selectChange)="tabChange($event)" md-no-ink=false >
+        <md-tab label="{{ 'PERSONAL' | translate: lang }}" >
+        <table style="width:98%; margin-left:20px;">
+                <tr>
+                    <td>
+                        <md-input-container>
+                            <input mdInput #idFld (keyup.enter)="onIdEnter()" placeholder="{{'ID' | translate: lang}}" style="width:200px" [(ngModel)]="player.id" disabled="false">
+                        </md-input-container>
+                        <br/>
+                        <md-input-container>
+                            <input mdInput #tagFld placeholder="{{'TAG' | translate: lang}}" style="width:400px" value="{{player.tag}}" disabled="true">
+                        </md-input-container><br/>
+                        <md-input-container>
+                            <input mdInput #nameFld placeholder="{{'NAME' | translate: lang}}" style="width:400px" value="{{player.name}}" disabled="true">
+                        </md-input-container><br/>
+                        <md-input-container>
+                            <input mdInput #clanFld placeholder="{{'ACTIVE_CLAN' | translate: lang}}" style="width:400px" value="{{clanName}}" disabled="true">
+                        </md-input-container><br/><br/>
+                    </td>
+                    <td rowspan="2">
+                        <img src="{{currentClanImage}}" style="width:400px; margin-top:50px"/>
+                    </td>
+                </tr>
+                <tr>
+                    <md-input-container>
+                            <input mdInput #ratingFld placeholder="{{'CURRENT_RATING' | translate: lang}}" style="width:200px" value="{{player.rating}}"  disabled="true">
+                    </md-input-container>
+                    <md-input-container>
+                            <input mdInput #oldratingFld placeholder="{{'PREVIOUS_RATING' | translate: lang}}" style="width:200px" value="{{player.oldRating}}" disabled="true">
+                    </md-input-container><br/>
+                    <md-input-container>
+                            <input mdInput #deviationFld placeholder="{{'CURRENT_DEVIATION' | translate: lang}}" style="width:200px" value="{{player.deviation}}" disabled="true">
+                    </md-input-container>
+                    <md-input-container>
+                            <input mdInput #olddeviationFld placeholder="{{'PREVIOUS_DEVIATION' | translate: lang}}" style="width:200px" value="{{player.oldDeviation}}" disabled="true">
+                    </md-input-container>
+                    <br/>
+                    <md-input-container>
+                            <input mdInput #positionFld placeholder="{{'POSITION' | translate: lang}}" style="width:200px" value="{{ninetyFive}}" disabled="true">
+                    </md-input-container><br/>
+                    <md-input-container>
+                            <input mdInput #rank placeholder="{{'RANK' | translate: lang}}" style="width:200px" value="{{suggestedRank}}"  disabled="true">
+                    </md-input-container><br/>
+                </tr>
+            </table>
+        </md-tab>
+        <md-tab label="{{ 'MATCHES' | translate: lang }}" >
+           List matches here in order (use prior list component again)
+        </md-tab>
+        <md-tab label="{{ 'CLAN_RATIOS' | translate: lang }}">
+           Calc Clan Ratios here i.e 60% win rate versus Lion in 5 matches
+           or play 20
+        </md-tab>
+        <md-tab label="{{ 'PERCENTAGE_PLAYED' | translate: lang }}">
+           Shows % games against each clan
+        </md-tab>
+   </md-tab-group>
+
+
+    

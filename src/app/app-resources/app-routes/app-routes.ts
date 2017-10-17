@@ -7,6 +7,8 @@ import { AddResultComponent } from '../../features/add-result/add-result.compone
 import { CompetitionEntryComponent } from '../../features/competition-entry/competition-entry.component';
 import { HomeComponent } from '../../features/admin/home/home.component';
 import { LoginComponent } from '../../features/admin/login/login.component';
+import { CurrentStandingsComponent } from '../../features/current-standings/current-standings.component';
+import { PlayerReportComponent } from '../../features/player-report/player-report.component';
 
 
 
@@ -16,6 +18,8 @@ const appRoutes: Routes = [
     { path: 'addeditplayer', component: AddEditComponent },
     { path: 'addresults', component: AddResultComponent },
     { path: 'addcompetition', component: CompetitionEntryComponent },
+    { path: 'playerreport', component: PlayerReportComponent },
+    { path: 'currentstandings', component: CurrentStandingsComponent },
     { path: 'login', component: LoginComponent },
     { path: '**', component: HomeComponent }// will show when routing fails
 ];
