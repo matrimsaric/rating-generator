@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FirebaseService } from '../../app-services/firebase.service';
-import { GlobalService } from '../../app-services/global.service';
 import { Player } from '../../app-resources/spine/player';
 import { Match } from '../../app-resources/spine/match';
 import { GameReportComponent } from '../game-report/game-report.component';
@@ -36,8 +35,7 @@ export class AddResultComponent implements OnInit {
   private glicko: any;
   private players: any[] = [];
 
-  constructor(  private _firebase: FirebaseService,
-                private _globals: GlobalService) { }
+  constructor(private _firebase: FirebaseService) { }
 
   ngOnInit() {
 
@@ -103,18 +101,11 @@ export class AddResultComponent implements OnInit {
       // also try and load any results
       var idReference: string = "competition-results/"+this.competitionId;
 
-      if(this._globals.savedResults){
-          this.buildList(this._globals.savedResults);
-      }
-      else{
-        this._firebase.af.app.database().ref(idReference).once('value').then(data => {
-            var comp: any =  JSON.parse(data.val().saveData);
-            this.buildList(comp);
-    
-        });
-      }
+      this._firebase.af.app.database().ref(idReference).once('value').then(data => {
+        var comp: any =  JSON.parse(data.val().saveData);
+        this.buildList(comp);
 
-      
+    });
           
     }
   }
@@ -122,9 +113,6 @@ export class AddResultComponent implements OnInit {
   private buildList(data: any): void{
     this.matchList = [];
     this.displayMatchList = [];
-
-    // set globals so we dont (potentially) have to reload
-    this._globals.savedResults = data;
 
     this.displayMatchList = data;
     for(var c: number = 0; c < data.length; c++){
@@ -180,6 +168,67 @@ export class AddResultComponent implements OnInit {
       this.loadPlayerStructure();
 
       this.compareMatchData();
+
+      this.updateIndividualPlayerRankings();
+    }
+  }
+
+  private updateIndividualPlayerRankings(): void{
+    // loop the players and change old rating to new rating
+    for(var i: number = 0; i < this.players.length; i++){
+      var currPlayer = this.players[i];
+      // find the actual player record
+      var recordReference: string = "players/"+this.players[i].id;
+      // get all map data
+      this._firebase.af.app.database().ref(recordReference).once('value').then(data => {
+          var play: any =  JSON.parse(data.val().saveData);
+          var tempPlayer: Player = new Player();
+
+          tempPlayer.id = +play.id;
+          tempPlayer.clanId = play.clanId;
+          tempPlayer.tag = play.tag;
+          tempPlayer.name = play.name;
+
+          // save old values
+          tempPlayer.oldRating = play.rating;
+          tempPlayer.oldDeviation = play.deviation;
+
+          // get players glicko!
+          var foundPlayer: any = this.players.filter(playerRec => playerRec.id == tempPlayer.id);
+
+          if(foundPlayer){
+              // set new values
+              tempPlayer.rating = foundPlayer[0].glicko.getRating();
+              tempPlayer.deviation = foundPlayer[0].glicko.getRd();
+              this._firebase.savePlayer(tempPlayer);
+              console.log(`${tempPlayer.tag}  -  ${foundPlayer[0].glicko.getRating()}`);
+          }
+
+          
+        })
+    }
+  }
+
+  private rollBackPlayerRatings(): void{
+    for(var i: number = 0; i < this.players.length; i++){
+      // find the actual player record
+      var recordReference: string = "players/"+this.players[i].id;
+      // get all map data
+      this._firebase.af.app.database().ref(recordReference).once('value').then(data => {
+          var play: any =  JSON.parse(data.val().saveData);
+          var tempPlayer: Player = new Player();
+
+          tempPlayer.id = +play.id;
+          tempPlayer.clanId = play.clanId;
+          tempPlayer.tag = play.tag;
+          tempPlayer.name = play.name;
+
+          // reset to old values
+          tempPlayer.rating = play.oldRating;
+          tempPlayer.deviation = play.oldDeviation;
+
+          this._firebase.savePlayer(tempPlayer);
+        })
     }
   }
 
@@ -232,15 +281,11 @@ export class AddResultComponent implements OnInit {
 
     private showRankings(){
       //this.players.sort(function(pl1, pl2){return pl2.glicko.getRating() - pl1.glicko.getRating();})
-      var recordReference: string = "players";
-      
-       this._firebase.af.app.database().ref(recordReference).once('value').then(data => {
-         this.trackPlayerRatingChanges(data);
-         
-    
-       });
 
-     
+      for(var i: number = 0; i < this.players.length; i++){
+          var player: any = this.players[i];
+          console.log(`[${player.id}] - ${player.name}: ${player.glicko.getRating()} (rd: ${player.glicko.getRd()})`);
+      }
 
       
   }
@@ -250,37 +295,7 @@ export class AddResultComponent implements OnInit {
     this.displayMatchList = [];
   }
 
-  private loadAllPlayers(): void{
-   
-  }
 
-  private trackPlayerRatingChanges(data: any): void{
-    for(var i: number = 0; i < data.length; i++){
-      var play: any =  JSON.parse(data[i].val().saveData);
-
-      // get the current player
-      var found: any = this.players.filter(playerRec => playerRec.id == play.id);
-      var glicko: any = found[0].glicko;
-      
-      var player: Player = new Player();
-      
-      player.id = +play.id;
-      player.clanId = play.clanId;
-      player.tag = play.tag;
-      player.oldRating = play.rating;
-      player.oldDeviation = play.deviation;
-      player.rating = glicko.getRating();
-      player.deviation = glicko.getRd();
-  
-      console.log(`[${player.id}] - ${player.tag}: ${glicko.getRating()} (rd: ${glicko.getRd()})`);
-   }
-    
-
-   
-
-    //this._firebase.savePlayer(player);
-    
-  }
 
 
 }

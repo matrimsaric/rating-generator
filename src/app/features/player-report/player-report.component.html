@@ -4,7 +4,7 @@
                 <tr>
                     <td>
                         <md-input-container>
-                            <input mdInput #idFld (keyup.enter)="onIdEnter()" placeholder="{{'ID' | translate: lang}}" style="width:200px" [(ngModel)]="player.id" disabled="false">
+                            <input mdInput #idFld (keyup.enter)="onPlayerEntry()" placeholder="{{'ID' | translate: lang}}" style="width:200px" [(ngModel)]="player.id" disabled="false">
                         </md-input-container>
                         <br/>
                         <md-input-container>

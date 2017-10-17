@@ -47,7 +47,10 @@
         {{'DRAW' | translate: lang}}
     </md-checkbox>
     <button md-mini-fab class="lookupBtn" (click)="commit()" title="{{'COMMIT' | translate: lang}}">
-        <span class="glyphicon glyphicon-floppy-disk" id="look1"  aria-hidden="true"  ></span>
+        <span class="glyphicon glyphicon-floppy-disk" id="commi"  aria-hidden="true"  ></span>
+    </button>
+    <button md-mini-fab class="lookupBtn" (click)="rollBackPlayerRatings()" title="{{'ROLL_BACK' | translate: lang}}">
+        <span class="glyphicon glyphicon-refresh" id="rollbac"  aria-hidden="true"  ></span>
     </button>
     <br/>
 </div>
