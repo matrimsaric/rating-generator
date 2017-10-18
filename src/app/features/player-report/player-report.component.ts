@@ -82,35 +82,55 @@ export class PlayerReportComponent implements OnInit {
   private getClanImage(): void{
       switch(this.player.clanId){
           case 1:
-            this.currentClanImage = "/assets/images/champions/crabclanchampvertical.jpg";
+            this.currentClanImage = "/assets/images/champions/crab.jpg";
             this.clanName = this._translator.translate("CRAB");
           break;
           case 2:
-            this.currentClanImage = "/assets/images/champions/craneclanchampvertical.jpg";
+            this.currentClanImage = "/assets/images/champions/crane.jpg";
             this.clanName = this._translator.translate("CRANE");
           break;
           case 3:
-            this.currentClanImage = "/assets/images/champions/dragonclanchampvertical.jpg";
+            this.currentClanImage = "/assets/images/champions/dragon.jpg";
             this.clanName = this._translator.translate("DRAGON");
           break;
           case 4:
-            this.currentClanImage = "/assets/images/champions/lionclanchampvertical.jpg";
+            this.currentClanImage = "/assets/images/champions/lion.jpg";
             this.clanName = this._translator.translate("LION");
           break;
           case 5: 
-            this.currentClanImage = "/assets/images/champions/phoenixclanchampvertical.jpg";
+            this.currentClanImage = "/assets/images/champions/phoenixl.jpg";
             this.clanName = this._translator.translate("PHOENIX");
           break;
           case 6:
-            this.currentClanImage = "/assets/images/champions/scorpionclanchampvertical.jpg";
+            this.currentClanImage = "/assets/images/champions/scorpion.jpg";
             this.clanName = this._translator.translate("SCORPION");
           break;
           case 7:
-            this.currentClanImage = "/assets/images/champions/unicornclanchampvertical.jpg";
+            this.currentClanImage = "/assets/images/champions/unicorn.jpg";
             this.clanName = this._translator.translate("UNICORN");
           break;
       }
   }
+
+  private forward(): void{
+    if(!this.player.id && this.player.id < 1){
+        this.player.id = 1;
+    } else{
+        this.player.id = this.player.id + 1;
+    }
+
+    this.onPlayerEntry();
+}
+
+    private back(): void{
+    if(this.player.id < 1){
+        this.player.id = 1;
+    } else{
+        this.player.id = this.player.id - 1;
+    }
+
+    this.onPlayerEntry();
+    }
 
   private calcNinetyFivePercent(): void{
     var extremeDeviation: number = this.player.deviation * 2;

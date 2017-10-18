@@ -207,6 +207,27 @@ export class AddResultComponent implements OnInit {
               var foundMatches: any = this.displayMatchList.filter(matchRec => matchRec.player1.id == tempPlayer.id || matchRec.player2.id == tempPlayer.id);
               if(foundMatches){
                 console.log(foundMatches);
+
+                // now switch matches so that current player is always on the left hand side
+                for(var f:number = 0; f < foundMatches.length; f++){
+                    if(foundMatches[f].player1.id != tempPlayer.id){
+                        var sav1 = foundMatches[f].player1;
+                        var sav2 = foundMatches[f].player2;
+
+                        foundMatches[f].player1 = sav2;
+                        foundMatches[f].player2 = sav1;
+
+                        foundMatches[f].match.id1 = sav2.id;
+                        foundMatches[f].match.id2 = sav1.id;
+                        if(foundMatches[f].match.result == 0){
+                            foundMatches[f].match.result = 1;
+                        }
+                        else{
+                            foundMatches[f].match.result = 0;
+                        }
+                        
+                    }
+                }
                 this._firebase.savePlayerMatchResults(foundMatches, tempPlayer.id.toString());
               }
 

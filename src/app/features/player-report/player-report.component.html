@@ -41,11 +41,13 @@
                     <md-input-container>
                             <input mdInput #rank placeholder="{{'RANK' | translate: lang}}" style="width:200px" value="{{suggestedRank}}"  disabled="true">
                     </md-input-container><br/>
+                    <button (click)="back()">B</button>
+                    <button (click)="forward()">F</button>
                 </tr>
             </table>
         </md-tab>
         <md-tab label="{{ 'MATCHES' | translate: lang }}" >
-            <div style="height:500px;  overflow-y: scroll;" >
+            <div style="height:500px;  overflow-y: scroll; margin-top: 20px;" >
                 <div *ngFor="let displayThisMatch of matches" >
                     <app-game-report [dispMatch]="displayThisMatch"></app-game-report>
                 </div>

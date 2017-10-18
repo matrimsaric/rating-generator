@@ -32,6 +32,7 @@ import { CompetitionEntryComponent } from './features/competition-entry/competit
 import { GameReportComponent } from './features/game-report/game-report.component';
 import { CurrentStandingsComponent } from './features/current-standings/current-standings.component';
 import { PlayerReportComponent } from './features/player-report/player-report.component';
+import { ControlPanelComponent } from './features/admin/control-panel/control-panel.component';
 
 
 // must export the firebase config
@@ -57,7 +58,8 @@ export const firebaseConfig = {
     CompetitionEntryComponent,
     GameReportComponent,
     CurrentStandingsComponent,
-    PlayerReportComponent
+    PlayerReportComponent,
+    ControlPanelComponent
   ],
   imports: [
     BrowserModule,

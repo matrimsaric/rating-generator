@@ -5,6 +5,8 @@ import { AgGridNg2, BaseComponentFactory } from 'ag-grid-angular/main';
 import { GridOptions, ColDef, RangeSelection, GridCell, ICellRenderer, ICellRendererParams, ICellRendererFunc, ICellEditor, RowNode } from 'ag-grid/main';
 import { ClanLogoRenderer } from './clan-logo.renderer';
 
+import { FirebaseService } from '../../app-services/firebase.service';
+
 // language
 import { Language, TranslationService } from 'angular-l10n';
 
@@ -16,51 +18,86 @@ import { Language, TranslationService } from 'angular-l10n';
 export class CurrentStandingsComponent implements OnInit {
 
    @Language() lang: string;
-   private gridRows: any[]; // row data is passed as is to ag-grid
+   private gridRows: any[] = []; // row data is passed as is to ag-grid
    public columnDefs: any[] = []; // ag-grid column definitions
    public gridOptions: GridOptions; // ag-grid options
    private rank: number = 1;
 
-  constructor(private _translate: TranslationService) { 
-    this.gridRows = [
-        {"id": 45, "name": "bob", "tag": "HUZZAH", "rating": 1789, "deviation": 250, "clan": 1},
-        {"id": 34, "name": "teresa", "tag": "MUTHER", "rating": 2019, "deviation": 150, "clan": 2},
-        {"id": 67, "name": "fred", "tag": "groupie", "rating": 1789, "deviation": 200, "clan": 3},
-        {"id": 123, "name": "ginny", "tag": "luvs", "rating": 1233, "deviation": 50, "clan": 4},
-        {"id": 87, "name": "maximus", "tag": "dalord", "rating": 1500, "deviation": 300, "clan": 5},
-        {"id": 54, "name": "graham", "tag": "flyingmuppets", "rating": 1400, "deviation": 100, "clan": 6},
-        {"id": 90, "name": "james", "tag": "riders", "rating": 1290, "deviation": 300, "clan": 7},
-        {"id": 122, "name": "frank", "tag": "jog", "rating": 1655, "deviation": 144, "clan": 3},
-        {"id": 156, "name": "clare", "tag": "allluvs", "rating": 1987, "deviation": 200, "clan": 4},
-        {"id": 344, "name": "anthony", "tag": "strong", "rating": 1134, "deviation": 40, "clan": 5},
-        {"id": 32, "name": "jake", "tag": "great", "rating": 1223, "deviation": 112, "clan": 6},
-        {"id": 65, "name": "bianca", "tag": "sith lord", "rating": 1765, "deviation": 345, "clan": 7},
-        {"id": 87, "name": "steff", "tag": "jug", "rating": 1566, "deviation": 266, "clan": 1},
-        {"id": 900, "name": "louis", "tag": "hmmm", "rating": 1487, "deviation": 250, "clan": 2}
+  constructor(  private _translate: TranslationService,
+                private _firebase: FirebaseService) { 
+    this.gridRows = [];
+        // {"id": 45, "name": "bob", "tag": "HUZZAH", "rating": 12, "deviation": 1, "clan": 0}];
+    //     {"id": 34, "name": "teresa", "tag": "MUTHER", "rating": 2019, "deviation": 150, "clan": 2},
+    //     {"id": 67, "name": "fred", "tag": "groupie", "rating": 1789, "deviation": 200, "clan": 3},
+    //     {"id": 123, "name": "ginny", "tag": "luvs", "rating": 1233, "deviation": 50, "clan": 4},
+    //     {"id": 87, "name": "maximus", "tag": "dalord", "rating": 1500, "deviation": 300, "clan": 5},
+    //     {"id": 54, "name": "graham", "tag": "flyingmuppets", "rating": 1400, "deviation": 100, "clan": 6},
+    //     {"id": 90, "name": "james", "tag": "riders", "rating": 1290, "deviation": 300, "clan": 7},
+    //     {"id": 122, "name": "frank", "tag": "jog", "rating": 1655, "deviation": 144, "clan": 3},
+    //     {"id": 156, "name": "clare", "tag": "allluvs", "rating": 1987, "deviation": 200, "clan": 4},
+    //     {"id": 344, "name": "anthony", "tag": "strong", "rating": 1134, "deviation": 40, "clan": 5},
+    //     {"id": 32, "name": "jake", "tag": "great", "rating": 1223, "deviation": 112, "clan": 6},
+    //     {"id": 65, "name": "bianca", "tag": "sith lord", "rating": 1765, "deviation": 345, "clan": 7},
+    //     {"id": 87, "name": "steff", "tag": "jug", "rating": 1566, "deviation": 266, "clan": 1},
+    //     {"id": 900, "name": "louis", "tag": "hmmm", "rating": 1487, "deviation": 250, "clan": 2}
 
-    ]
+    // ]
 
   }
 
   ngOnInit() {
+      this.loadPlayerBase();
+
       this.createColumnsDefs();
+      
+      this.gridOptions = <GridOptions>{
+          enableColResize: true,
+          enableSorting: true,
+          enableFilter: true,
+          groupHeaders: true,
+          toolPanelSuppressGroups: true,
+          toolPanelSuppressValues: true,
+          debug: false,
+          columnDefs: this.columnDefs,
+          groupUseEntireRow: true
+  
+      };
+      
+  }
 
-    this.gridOptions = <GridOptions>{
-        enableColResize: true,
-        enableSorting: true,
-        enableFilter: true,
-        groupHeaders: true,
-        toolPanelSuppressGroups: true,
-        toolPanelSuppressValues: true,
-        debug: false,
-        columnDefs: this.columnDefs,
-        groupUseEntireRow: true,
-        onGridReady: (params) => {
-            this.setupRowData();
-            this.gridOptions.api.setRowData(this.gridRows);
-        },
+  private loadPlayerBase(): void{
+    // load individual players and add to base list array
+    var empty: boolean = false;
+    var playerCount: number = 0;
+    var tempArray: any[] = [];
 
-    };
+
+    for(var i: number = 1; i < 107; i++){
+        
+        //playerCount += 1;
+        var recordReference: string = "players/"+i;
+        // get all map data
+        this._firebase.af.app.database().ref(recordReference).once('value').then(data => {
+            var play: any =  JSON.parse(data.val().saveData);
+            //console.log('loading' + i + " for player " + play.id + " tag " + play.tag);
+            var newRow: any = {"id": play.id, "name": play.name, "tag": play.tag, "rating": play.rating, "deviation": play.deviation, "clan": play.clanId };
+
+            this.gridRows.push(newRow);
+
+            if(play.id == 106){
+                this.setupRowData();
+            }
+           
+          });
+
+          
+    }
+
+    // then save array - 
+    this._firebase.saveStandings(this.gridRows);
+
+    console.log('implement button to use cached data');
+
   }
 
   private createColumnsDefs() {
@@ -118,7 +155,7 @@ export class CurrentStandingsComponent implements OnInit {
 
   
 
-    private setupRowData(): boolean {
+    private setupRowData() {
         var internalCount = 0;
         var dataSet: boolean = true;
         this.rank = 1;
@@ -144,13 +181,9 @@ export class CurrentStandingsComponent implements OnInit {
                 
                 this.rank += 1;
             }
-            this.gridOptions.rowData = this.gridRows;
+            this.gridOptions.api.setRowData(this.gridRows);
+            console.log(JSON.stringify(this.gridRows));
         }
-        else{
-            dataSet = false;
-        }
-
-        return dataSet;
         
 
     }

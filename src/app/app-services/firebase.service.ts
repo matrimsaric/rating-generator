@@ -60,7 +60,17 @@ export class FirebaseService {
 
     this.af.app.database().ref('competition-results/'+compId).set({
       saveData
-    });console.log(saveData);
+    });
+    //console.log(saveData);
+  }
+
+  saveStandings(standings: any): void{
+      let saveData: string = JSON.stringify(standings);
+
+      this.af.app.database().ref('live-standings').set({
+        saveData
+      });
+      //console.log(saveData);
   }
 
   savePlayerMatchResults(compResults: any, compId: string): void{
@@ -68,7 +78,8 @@ export class FirebaseService {
 
     this.af.app.database().ref('player-match-results/'+compId).set({
       saveData
-    });console.log(saveData);
+    });
+    //console.log(saveData);
   }
 
   loadPlayer(playerId: number): any{
