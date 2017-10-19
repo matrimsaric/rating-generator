@@ -4,8 +4,12 @@ import { FirebaseService } from '../../app-services/firebase.service';
 import { Player } from '../../app-resources/spine/player';
 import { Match } from '../../app-resources/spine/match';
 import { GameReportComponent } from '../game-report/game-report.component';
+import { MATCH_TYPE } from '../../app-resources/spine/match-type';
 
 import * as glicko2 from 'glicko2';
+
+// language
+import { Language, TranslationService } from 'angular-l10n';
 
 @Component({
   selector: 'app-add-result',
@@ -34,14 +38,37 @@ export class AddResultComponent implements OnInit {
   };
   private glicko: any;
   private players: any[] = [];
+  private rounds: any[] = [];
+     
 
-  constructor(private _firebase: FirebaseService) { }
+
+  constructor(  private _firebase: FirebaseService,
+                private _translate: TranslationService) { }
 
   ngOnInit() {
 
     this.glicko = new glicko2.Glicko2(this.settings);
 
-
+    // count array
+    //var rdCt: number = Object.keys(MATCH_TYPE).length/2;
+    this.rounds.push({value: MATCH_TYPE.SWISS, name: this._translate.translate("SWISS")});
+    this.rounds.push({value: MATCH_TYPE.SWISS_ROUND_1, name: this._translate.translate("SWISS_1")});
+    this.rounds.push({value: MATCH_TYPE.SWISS_ROUND_2, name: this._translate.translate("SWISS_2")});
+    this.rounds.push({value: MATCH_TYPE.SWISS_ROUND_3, name: this._translate.translate("SWISS_3")});
+    this.rounds.push({value: MATCH_TYPE.SWISS_ROUND_4, name: this._translate.translate("SWISS_4")});
+    this.rounds.push({value: MATCH_TYPE.SWISS_ROUND_5, name: this._translate.translate("SWISS_5")});
+    this.rounds.push({value: MATCH_TYPE.SWISS_ROUND_6, name: this._translate.translate("SWISS_6")});
+    this.rounds.push({value: MATCH_TYPE.SWISS_ROUND_7, name: this._translate.translate("SWISS_7")});
+    this.rounds.push({value: MATCH_TYPE.SWISS_ROUND_8, name: this._translate.translate("SWISS_8")});
+    this.rounds.push({value: MATCH_TYPE.TOP_132, name: this._translate.translate("TOP_132")});
+    this.rounds.push({value: MATCH_TYPE.TOP_64, name: this._translate.translate("TOP_64")});
+    this.rounds.push({value: MATCH_TYPE.TOP_32, name: this._translate.translate("TOP_32")});
+    this.rounds.push({value: MATCH_TYPE.TOP_16, name: this._translate.translate("TOP_16")});
+    this.rounds.push({value: MATCH_TYPE.QUATER_FINALS, name: this._translate.translate("QUATER_FINALS")});
+    this.rounds.push({value: MATCH_TYPE.SEMI_FINALS, name: this._translate.translate("SEMI_FINALS")});
+    this.rounds.push({value: MATCH_TYPE.FINALS, name: this._translate.translate("FINALS")});
+    
+    
   }
 
   private add(): void{

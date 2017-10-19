@@ -20,9 +20,14 @@
             <span class="glyphicon glyphicon-minus" id="look1"  aria-hidden="true"  ></span>
             </button>
     <br/>
-    <md-input-container>
+    <md-select placeholder="{{'ROUND' | translate: lang}}" [(ngModel)]="competitionRound" name="roundName">
+        <md-option *ngFor="let round of rounds" [value]="round.value">
+            {{round.name}}
+        </md-option>
+    </md-select><br/>
+    <!-- <md-input-container>
         <input mdInput #rdFld placeholder="{{'ROUND' | translate: lang}}" style="width:200px" [(ngModel)]="competitionRound" disabled="false">
-    </md-input-container><br/>
+    </md-input-container><br/> -->
     <md-input-container>
         <input mdInput #id1 (keyup.enter)="onPlayerOneEnter()" placeholder="{{'PLAYER1ID' | translate: lang}}" style="width:100px" [(ngModel)]="playerOne.id" disabled="false">
     </md-input-container>

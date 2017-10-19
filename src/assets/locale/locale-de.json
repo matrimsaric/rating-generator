@@ -59,5 +59,19 @@
     "GRAND_MASTER": "de#Grand Master",
     "CLAN": "de#Clan",
     "RATING": "de#Rating",
-    "DEVIATION": "de#Deviation"
+    "DEVIATION": "de#Deviation",
+    "SWISS": "de#Swiss",
+    "SWISS_1": "de#Swiss: Round One",
+    "SWISS_2": "de#Swiss: Round Two",
+    "SWISS_3": "de#Swiss: Round Three",
+    "SWISS_4": "de#Swiss: Round Four",
+    "SWISS_5": "de#Swiss: Round Five",
+    "SWISS_6": "de#Swiss: Round Six",
+    "TOP_132": "de#Top 132",
+    "TOP_64": "de#Top 64",
+    "TOP_32": "de#Top 32",
+    "TOP_16": "de#Top 16",
+    "QUATER_FINALS": "de#Quater Finals",
+    "SEMI_FINALS": "de#Semi Finals",
+    "FINALS": "de#Finals"
 }
