@@ -9,7 +9,7 @@ export class GlobalService {
   public dialogResult: any;
   public savedResults: any; // storage space for results
   public savedPlayers: Player[] = [];// storage space for players
-
+  public playerLoadId: number = null;
 
 
   constructor() { }

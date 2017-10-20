@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Player } from '../../app-resources/spine/player';
 import { FirebaseService } from '../../app-services/firebase.service';
+import { GlobalService } from '../../app-services/global.service';
 
 import { GameReportComponent } from '../game-report/game-report.component';
 
@@ -21,13 +22,24 @@ export class PlayerReportComponent implements OnInit {
     private currentClanImage: string;
     private ninetyFive: string;
     private matches: any;
+    private showImage: boolean = true;
 
   constructor(private _translator: TranslationService,
-                private _firebase: FirebaseService) { }
+                private _firebase: FirebaseService,
+                private _globals: GlobalService) { }
 
   ngOnInit() {
     // for debugging generate a test person to check field connections
-    this.createTestPlayer();
+    if(this._globals.playerLoadId != null){
+        this.player = new Player();
+        this.showImage = false;
+        this.player.id = this._globals.playerLoadId;
+        this.onPlayerEntry();
+        this._globals.playerLoadId = null;
+    } else{
+        this.createTestPlayer();
+    }
+    
   }
 
   private createTestPlayer(): void{
@@ -72,7 +84,6 @@ export class PlayerReportComponent implements OnInit {
         var matchReference: string = "player-match-results/"+this.player.id;
         this._firebase.af.app.database().ref(matchReference).once('value').then(data => {
           this.matches = JSON.parse(data.val().saveData);
-          console.log(this.matches);
         });
 
           
@@ -82,7 +93,7 @@ export class PlayerReportComponent implements OnInit {
   private getClanImage(): void{
       switch(this.player.clanId){
           case 1:
-            this.currentClanImage = "/assets/images/champions/crab.jpg";
+            this.currentClanImage = "/assets/images/champions/crab.png";
             this.clanName = this._translator.translate("CRAB");
           break;
           case 2:
@@ -90,23 +101,23 @@ export class PlayerReportComponent implements OnInit {
             this.clanName = this._translator.translate("CRANE");
           break;
           case 3:
-            this.currentClanImage = "/assets/images/champions/dragon.jpg";
+            this.currentClanImage = "/assets/images/champions/dragon.png";
             this.clanName = this._translator.translate("DRAGON");
           break;
           case 4:
-            this.currentClanImage = "/assets/images/champions/lion.jpg";
+            this.currentClanImage = "/assets/images/champions/lion.png";
             this.clanName = this._translator.translate("LION");
           break;
           case 5: 
-            this.currentClanImage = "/assets/images/champions/phoenixl.jpg";
+            this.currentClanImage = "/assets/images/champions/phoenix.png";
             this.clanName = this._translator.translate("PHOENIX");
           break;
           case 6:
-            this.currentClanImage = "/assets/images/champions/scorpion.jpg";
+            this.currentClanImage = "/assets/images/champions/scorpion.png";
             this.clanName = this._translator.translate("SCORPION");
           break;
           case 7:
-            this.currentClanImage = "/assets/images/champions/unicorn.jpg";
+            this.currentClanImage = "/assets/images/champions/unicorn.png";
             this.clanName = this._translator.translate("UNICORN");
           break;
       }

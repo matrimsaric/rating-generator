@@ -2,7 +2,9 @@
     <ag-grid-angular #agGrid style="width:95%; height: 500px"
                      class="ag-fresh"
                      [ngStyle]="gridStyle"
+                     [enableRangeSelection]=true
                      (cellValueChanged)="onCellValueChanged($event)"
+                     (cellDoubleClicked)="onCellDoubleClicked($event)"
                      [gridOptions]="gridOptions">
     </ag-grid-angular>
 </div> 

@@ -73,13 +73,12 @@ export class FirebaseService {
       //console.log(saveData);
   }
 
-  savePlayerMatchResults(compResults: any, compId: string): void{
-    let saveData: string = JSON.stringify(compResults);
+  savePlayerMatchResults(matchResults: any, playerId: string, competitionId: string): void{
+    let saveData: string = JSON.stringify(matchResults);
 
-    this.af.app.database().ref('player-match-results/'+compId).set({
+     this.af.app.database().ref('player-match-results/'+playerId).set({
       saveData
     });
-    //console.log(saveData);
   }
 
   loadPlayer(playerId: number): any{

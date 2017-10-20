@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { AgGridNg2, BaseComponentFactory } from 'ag-grid-angular/main';
 import { GridOptions, ColDef, RangeSelection, GridCell, ICellRenderer, ICellRendererParams, ICellRendererFunc, ICellEditor, RowNode } from 'ag-grid/main';
 
+import { GlobalService } from '../../../app-services/global.service';
+import { MESSAGE_REQUESTOR, MESSAGE_TYPE, MessagingService, MessageInformation} from '../../../app-services/messaging.service';
 
 import { FirebaseService } from '../../../app-services/firebase.service';
 import { Player } from '../../../app-resources/spine/player';
@@ -24,8 +26,12 @@ export class ControlPanelComponent implements OnInit {
     public gridOptions: GridOptions; // ag-grid options
     private rank: number = 1;
 
+    private currentLookup: MESSAGE_TYPE = MESSAGE_TYPE.UNKNOWN;
+
   constructor(  private _translate: TranslationService,
-                private _firebase: FirebaseService) { 
+                private _firebase: FirebaseService,
+                private _globals: GlobalService,
+                private _messaging: MessagingService) { 
   }
 
   ngOnInit() {
@@ -38,6 +44,8 @@ export class ControlPanelComponent implements OnInit {
           enableSorting: true,
           enableFilter: true,
           groupHeaders: true,
+          enableRangeSelection: true,
+          rowSelection: "multiple",
           toolPanelSuppressGroups: true,
           toolPanelSuppressValues: true,
           debug: false,
@@ -87,7 +95,7 @@ export class ControlPanelComponent implements OnInit {
     // collect current row and then save to database
     var adjustedPlayer: Player = new Player();
 
-    adjustedPlayer.clanId = $event.data["id"];
+    adjustedPlayer.id = $event.data["id"];
     adjustedPlayer.name = $event.data["name"];
     adjustedPlayer.tag = $event.data["tag"];
     adjustedPlayer.clanId = $event.data["clan"];
@@ -168,6 +176,16 @@ export class ControlPanelComponent implements OnInit {
                 width: 120,
             }
         ];
+    }
+
+    private onCellDoubleClicked($event): void{
+        this.currentLookup = MESSAGE_TYPE.PLAYER_LOOKUP;
+    
+        var msg: MessageInformation = { "name": "dialogRequest", messageType: this.currentLookup,
+                       details: $event.node.data.id, extra:[]};
+    
+        this._globals.playerLoadId = $event.node.data.id;
+        this._messaging.sendMessage(msg);
     }
 
   

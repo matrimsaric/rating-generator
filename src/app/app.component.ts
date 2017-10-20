@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs/rx';
 
 // modal parent and dialogues to load
 import { ModalDialogComponent } from './app-resources/common/modal-dialog/modal-dialog.component';
+import { PlayerReportComponent } from './features/player-report/player-report.component';
 // import { SetComponent } from './features/lookups/set/set.component';
 // import { ProducerComponent } from './features/lookups/producer/producer.component';
 // import { NationalityComponent } from './features/lookups/nationality/nationality.component';
@@ -86,38 +87,19 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private onMessageReceived(message: MessageInformation): void{
 
-    // switch(message.messageType){
-    //   case MESSAGE_TYPE.OPEN_SET_DIALOG:
-    //     this.liveDialog = message.details;
-    //     this.modal.modalTitle = this.localization.translate("SELECT_SET");
-    //     this.modal.passThroughData = message.details;// will contain a ref to the calling class.
-    //     this.modal.okButton = true;
-    //     this.modal.modalWidth = 500;
-    //     this.modal.cancelButton = false;
-    //     this.modal.modalMessage = true;
-    //     this.modal.open(SetComponent);// pass in a component to populate the modal
-    //   break;
-    //   case MESSAGE_TYPE.OPEN_PRODUCER_DIALOG:
-    //     this.liveDialog = message.details;
-    //     this.modal.modalTitle = this.localization.translate("SELECT_PRODUCER");
-    //     this.modal.passThroughData = message.details;// will contain a ref to the calling class.
-    //     this.modal.okButton = true;
-    //     this.modal.modalWidth = 500;
-    //     this.modal.cancelButton = false;
-    //     this.modal.modalMessage = true;
-    //     this.modal.open(ProducerComponent);// pass in a component to populate the modal
-    //   break;
-    //   case MESSAGE_TYPE.OPEN_NATIONALITY_DIALOG:
-    //     this.liveDialog = message.details;
-    //     this.modal.modalTitle = this.localization.translate("SELECT_NATIONALITY");
-    //     this.modal.passThroughData = message.details;// will contain a ref to the calling class.
-    //     this.modal.okButton = true;
-    //     this.modal.modalWidth = 500;
-    //     this.modal.cancelButton = false;
-    //     this.modal.modalMessage = true;
-    //     this.modal.open(NationalityComponent);// pass in a component to populate the modal
-    // break;
-    // }
+    switch(message.messageType){
+      case MESSAGE_TYPE.PLAYER_LOOKUP:
+        this.liveDialog = message.details;
+        this.modal.modalTitle = this.localization.translate("PLAYER_LOOKUP");
+        this.modal.passThroughData = message.details;// will contain a ref to the calling class.
+        this.modal.okButton = true;
+        this.modal.modalWidth = 700;
+        this.modal.cancelButton = false;
+        this.modal.modalMessage = true;
+        this.modal.open(PlayerReportComponent);// pass in a component to populate the modal
+      break;
+    }
+   
   }
 
   private modalOutput($event): void{

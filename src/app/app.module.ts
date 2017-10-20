@@ -75,6 +75,9 @@ export const firebaseConfig = {
     AngularFireAuthModule,
     AgGridModule.withComponents([])
   ],
+  entryComponents: [
+      PlayerReportComponent
+  ],
   providers: [
     TranslationService,
     MessagingService,

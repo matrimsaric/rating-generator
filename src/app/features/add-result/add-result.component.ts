@@ -157,6 +157,8 @@ export class AddResultComponent implements OnInit {
           this.playerOne.id = +play.id;
           this.playerOne.clanId = play.clanId;
           this.playerOne.tag = play.tag;
+          this.playerOne.deviation = play.deviation;
+          this.playerOne.rating = play.rating;
      
         })
 
@@ -175,9 +177,11 @@ export class AddResultComponent implements OnInit {
           this.playerTwo.id = +play.id;
           this.playerTwo.clanId = play.clanId;
           this.playerTwo.tag = play.tag;
-     
+          this.playerTwo.deviation = play.deviation;
+          this.playerTwo.rating = play.rating;
         })
 
+        
           
     }
 
@@ -227,7 +231,7 @@ export class AddResultComponent implements OnInit {
               // set new values
               tempPlayer.rating = foundPlayer[0].glicko.getRating();
               tempPlayer.deviation = foundPlayer[0].glicko.getRd();
-              //this._firebase.savePlayer(tempPlayer);
+              this._firebase.savePlayer(tempPlayer);
               console.log(`${tempPlayer.tag}  -  ${foundPlayer[0].glicko.getRating()}`);
 
               // get list of matches
@@ -240,6 +244,7 @@ export class AddResultComponent implements OnInit {
                     if(foundMatches[f].player1.id != tempPlayer.id){
                         var sav1 = foundMatches[f].player1;
                         var sav2 = foundMatches[f].player2;
+                        foundMatches[f]["compeitionid"] = this.competitionId;// needed to prevent overwrites
 
                         foundMatches[f].player1 = sav2;
                         foundMatches[f].player2 = sav1;
@@ -255,7 +260,9 @@ export class AddResultComponent implements OnInit {
                         
                     }
                 }
-                this._firebase.savePlayerMatchResults(foundMatches, tempPlayer.id.toString());
+                // note only current live player matches are saved =- this prevents data bloat
+                // as time passes.
+                //this._firebase.savePlayerMatchResults(foundMatches, tempPlayer.id.toString(), this.competitionId);
               }
 
 

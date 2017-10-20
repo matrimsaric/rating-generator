@@ -3,10 +3,12 @@ import { Injectable, EventEmitter } from '@angular/core';
 
 export enum MESSAGE_TYPE{
     UNKNOWN = 0,
+    PLAYER_LOOKUP = 1
 }
 
 export enum MESSAGE_REQUESTOR{
   UNKNOWN = 0,
+  GAME_REPORT = 1
 }
 
 // class to contain enough generic info to allow the majority of components

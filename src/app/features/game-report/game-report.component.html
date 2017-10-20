@@ -13,7 +13,7 @@
             <label>{{result}}</label>
         </div>
         <div class="col-xs-2">
-                <label>{{player2.tag}}</label>
+                <label (click)="showPlayer(2)" style="color: Red"><u>{{player2.tag}}</u></label>
         </div>
         <div class="col-xs-1">
                 <img src="{{player2Icon}}"  style="width: 30px; height: 30px;"/>

@@ -17,7 +17,7 @@
                             <input mdInput #clanFld placeholder="{{'ACTIVE_CLAN' | translate: lang}}" style="width:400px" value="{{clanName}}" disabled="true">
                         </md-input-container><br/><br/>
                     </td>
-                    <td rowspan="2">
+                    <td rowspan="2" *ngIf="showImage">
                         <img src="{{currentClanImage}}" style="width:400px; margin-top:50px"/>
                     </td>
                 </tr>
