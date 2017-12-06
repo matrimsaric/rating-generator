@@ -99,10 +99,17 @@ export class AddEditComponent implements OnInit {
             var play: any =  JSON.parse(data.val().saveData);
             this.player = new Player();
             this.player.id = +play.id;
-            //this.player.clanId = play.clanId;
-            this.player.tag = play.name;
-            //this.getClan(this.player.clanId);       
-          })
+            this.player.clanId = play.clanId;
+            this.player.tag = play.tag;
+            this.getClan(this.player.clanId);     
+            
+            this.player.rating = play.rating;
+            this.player.deviation = play.deviation;
+            this.player.volatility = play.volatility;
+            this.player.oldDeviation = play.oldDeviation;
+            this.player.oldRating = play.oldRating;
+            this.player.oldVolatility = play.oldVolatility;
+        })
 
             
       }
