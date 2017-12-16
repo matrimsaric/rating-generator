@@ -97,11 +97,21 @@ export class AddEditComponent implements OnInit {
         // get all map data
         this._firebase.af.app.database().ref(recordReference).once('value').then(data => {
             var play: any =  JSON.parse(data.val().saveData);
-            this.player = new Player();
-            this.player.id = +play.id;
-            //this.player.clanId = play.clanId;
-            this.player.tag = play.name;
-            //this.getClan(this.player.clanId);       
+            var player2 = new Player();
+            player2.id = +play.id;
+            player2.clanId = play.clanId;
+            player2.tag = play.tag;
+            
+            player2.deviation = play.deviation;
+            player2.volatility    = play.volatility;
+            player2.rating = play.rating; 
+            player2.oldDeviation = play.oldDeviation;
+            player2.oldVolatility    = play.oldVolatility;
+            player2.oldRating = play.oldRating; 
+
+            this.getClan(player2.clanId); 
+
+            this.player = player2;
           })
 
             

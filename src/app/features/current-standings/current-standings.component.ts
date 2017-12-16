@@ -72,7 +72,7 @@ export class CurrentStandingsComponent implements OnInit {
     var tempArray: any[] = [];
 
 
-    for(var i: number = 1; i < 107; i++){
+    for(var i: number = 1; i < 193; i++){
         
         //playerCount += 1;
         var recordReference: string = "players/"+i;
@@ -84,7 +84,7 @@ export class CurrentStandingsComponent implements OnInit {
 
             this.gridRows.push(newRow);
 
-            if(play.id == 106){
+            if(play.id == 192){
                 this.setupRowData();
             }
            
