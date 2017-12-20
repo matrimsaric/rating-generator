@@ -141,6 +141,52 @@ export class AddResultComponent implements OnInit {
     this.matchList = [];
     this.displayMatchList = [];
 
+    // repair work
+    // for(var index:number = 0; index < data.length; index++){
+    //     if(data[index].player1.id == 192 || data[index].player2.id == 192){
+    //         if(data[index].player1.id == 192){
+    //             data[index].player1.id = 193;
+    //             data[index].player1.tag = "Sotomatic";
+    //             data[index].player1.rating = 1500;
+    //             data[index].player1.deviation = 300.0;
+    //             data[index].match.id1 = 193;
+    //             data[index].player1.clanId = 5;
+    //             console.log('A ' + JSON.stringify(data[index].toString()));
+    //         }
+    //         if(data[index].player2.id == 192){
+    //             data[index].player2.id = 193;
+    //             data[index].player2.tag = "Sotomatic";
+    //             data[index].player2.rating = 1500;
+    //             data[index].player2.deviation = 300.0;
+    //             data[index].player2.clanId = 5;
+    //             data[index].match.id2 = 193;
+    //             console.log('B ' +  JSON.stringify(data[index].toString()));
+    //         }
+    //     }
+        
+    //     else if(data[index].player1.id == 193 || data[index].player2.id == 193){
+    //         if(data[index].player1.id == 193){
+    //             data[index].player1.id = 192;
+    //             data[index].player1.tag = "Tenerim";
+    //             data[index].player1.rating = 1724;
+    //             data[index].player1.deviation = 231;
+    //             data[index].match.id1 = 192;
+    //             data[index].player1.clanId = 4;
+    //             console.log('C ' +  JSON.stringify(data[index].toString()));
+    //         }
+    //         if(data[index].player2.id == 193){
+    //             data[index].player2.id = 192;
+    //             data[index].player2.tag = "Tenerim";
+    //             data[index].player2.rating = 1724;
+    //             data[index].player2.deviation = 231;
+    //             data[index].match.id2 = 192;
+    //             data[index].player2.clanId = 4;
+    //             console.log('D ' +  JSON.stringify(data[index].toString()));
+    //         }
+    //     }
+        
+    // }
+
     this.displayMatchList = data;
     for(var c: number = 0; c < data.length; c++){
       this.matchList.push(data[c].match);
