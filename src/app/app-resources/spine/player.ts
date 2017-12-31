@@ -11,4 +11,5 @@ export class Player {
     clanId: number = -1;
     active: boolean = true;
     lastActive: string = "";
+    discord: number = 0;
 }

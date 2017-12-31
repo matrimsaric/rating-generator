@@ -108,6 +108,7 @@ export class AddEditComponent implements OnInit {
             player2.oldDeviation = play.oldDeviation;
             player2.oldVolatility    = play.oldVolatility;
             player2.oldRating = play.oldRating; 
+            player2.active = play.active;
 
             this.getClan(player2.clanId); 
 

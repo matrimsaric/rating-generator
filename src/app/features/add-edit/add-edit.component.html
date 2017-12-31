@@ -17,8 +17,14 @@
                         <input mdInput #nameFld placeholder="{{'TAG' | translate: lang}}" style="width:400px" [(ngModel)]="player.tag" disabled="false">
                     </md-input-container><br/>
                     <md-input-container>
-                        <input mdInput #nameFld placeholder="{{'NAME' | translate: lang}}" style="width:400px" [(ngModel)]="player.name" disabled="false">
+                        <input mdInput #discordFld placeholder="{{'DISCORD' | translate: lang}}" style="width:400px" [(ngModel)]="player.discord" disabled="false">
                     </md-input-container><br/>
+                    <md-checkbox
+                        class="example-margin"
+                        [(ngModel)]="player.active">
+                        {{'ACTIVE' | translate: lang}}
+                    </md-checkbox>
+                <br/>
                     <md-input-container>
                         <input mdInput #nameFld placeholder="{{'ACTIVE_CLAN' | translate: lang}}" style="width:400px" value="{{clanName}}" disabled="true">
                     </md-input-container><br/><br/>
@@ -37,10 +43,10 @@
             </div>
             <div class="col-xs-6">
                     <md-input-container>
-                        <input mdInput #ratingFld placeholder="{{'RATING' | translate: lang}}" style="width:200px" [(ngModel)]="player.rating" disabled="true">
+                        <input mdInput #ratingFld placeholder="{{'RATING' | translate: lang}}" style="width:200px" [(ngModel)]="player.rating" disabled="false">
                     </md-input-container><br/>
                     <md-input-container>
-                        <input mdInput #ratingFld placeholder="{{'DEVIATION' | translate: lang}}" style="width:200px" [(ngModel)]="player.deviation" disabled="true">
+                        <input mdInput #ratingFld placeholder="{{'DEVIATION' | translate: lang}}" style="width:200px" [(ngModel)]="player.deviation" disabled="false">
                     </md-input-container><br/>
                     <md-input-container>
                         <input mdInput #ratingFld placeholder="{{'VOLATILITY' | translate: lang}}" style="width:200px" [(ngModel)]="player.volatility" disabled="true">

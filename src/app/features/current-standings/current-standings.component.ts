@@ -72,7 +72,7 @@ export class CurrentStandingsComponent implements OnInit {
     var tempArray: any[] = [];
 
 
-    for(var i: number = 1; i < 193; i++){
+    for(var i: number = 1; i < 232; i++){
         
         //playerCount += 1;
         var recordReference: string = "players/"+i;
@@ -80,15 +80,30 @@ export class CurrentStandingsComponent implements OnInit {
         this._firebase.af.app.database().ref(recordReference).once('value').then(data => {
             var play: any =  JSON.parse(data.val().saveData);
             //console.log('loading' + i + " for player " + play.id + " tag " + play.tag);
-            var newRow: any = {"id": play.id, "name": play.name, "tag": play.tag, "rating": play.rating, "deviation": play.deviation, "clan": play.clanId };
 
-            this.gridRows.push(newRow);
+            if(play.active != false){
+              
+                var adj: string = "";
+                if(play.rating < play.oldRating){
+                    adj = "<label style='color: red'>" + (play.oldRating - play.rating).toString() + "</label>";
+                }
+                else if (play.rating > play.oldRating) {
+                    adj = "<label style='color: green'>" + (play.rating - play.oldRating).toString() + "</label>";
+                }
+                else {
+                    adj = "<label style='color: black'>" + (play.rating - play.oldRating).toString() + "</label>";
+                }
+                var newRow: any = {"id": play.id, "discord": play.discord, "tag": play.tag, "rating": play.rating, "deviation": play.deviation, "clan": play.clanId, "adjust": adj  };
 
-            if(play.id == 192){
-                this.setupRowData();
+                this.gridRows.push(newRow);
+
+                if(play.id == 231){
+                    this.setupRowData();
+                }
             }
            
           });
+
 
           
     }
@@ -108,8 +123,8 @@ export class CurrentStandingsComponent implements OnInit {
                 width: 60,
             },
             {
-                headerName: this._translate.translate("NAME"),
-                field: "name",
+                headerName: this._translate.translate("DISCORD_ID"),
+                field: "discord",
                 editable: false,
                 width: 150,
             },
@@ -137,6 +152,12 @@ export class CurrentStandingsComponent implements OnInit {
                 field: "deviation",
                 editable: false,
                 width: 120,
+            },
+            {
+                headerName: "+/-",
+                field: "adjust",
+                editable: false,
+                width: 120
             },
             {
                 headerName: this._translate.translate("PLACEMENT"),
