@@ -170,7 +170,7 @@ export class AddResultComponent implements OnInit {
         //         console.log('B1 ' +  JSON.stringify(data[index].player2.toString()));
         //     }
         // }
-      }
+
         
     //     else if(data[index].player1.id == 176 || data[index].player2.id == 176){
     //         if(data[index].player1.id == 176){
