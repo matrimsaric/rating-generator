@@ -143,26 +143,34 @@ export class AddResultComponent implements OnInit {
 
     // // repair work
     // for(var index:number = 0; index < data.length; index++){
-    //     if(data[index].player1.id == 218 || data[index].player2.id == 218){
-    //         if(data[index].player1.id == 218){
-    //             data[index].player1.id = 176;
-    //             // data[index].player1.tag = "Sotomatic";
-    //             data[index].player1.rating = 1724.0896031808043;
-    //             data[index].player1.deviation = 231.84253471537815;
-    //             data[index].match.id1 = 176;
-    //             // data[index].player1.clanId = 5;
-    //             console.log('A1 ' + JSON.stringify(data[index].player1.toString()));
-    //         }
-    //         if(data[index].player2.id == 218){
-    //             data[index].player2.id = 176;
-    //             // data[index].player2.tag = "Sotomatic";
-    //             data[index].player2.rating = 1724.0896031808043;
-    //             data[index].player2.deviation = 231.84253471537815;
-    //             // data[index].player2.clanId = 5;
-    //             data[index].match.id2 = 176;
-    //             console.log('B1 ' +  JSON.stringify(data[index].player2.toString()));
-    //         }
+    //     if(data[index].player1.id == 209 && data[index].player2.id == 139){
+
+    //       var save2 = data[index].player2;
+    //       data[index].player2 = data[index].player1;
+    //       data[index].player1 = save2;
+    //       data[index].match.id1 = 139;
+    //       data[index].match.id2 = 209;
     //     }
+        //     // if(data[index].player1.id == 218){
+        //         data[index].player1.id = 176;
+        //         // data[index].player1.tag = "Sotomatic";
+        //         data[index].player1.rating = 1724.0896031808043;
+        //         data[index].player1.deviation = 231.84253471537815;
+        //         data[index].match.id1 = 176;
+        //         // data[index].player1.clanId = 5;
+        //         console.log('A1 ' + JSON.stringify(data[index].player1.toString()));
+        //     }
+        //     if(data[index].player2.id == 218){
+        //         data[index].player2.id = 176;
+        //         // data[index].player2.tag = "Sotomatic";
+        //         data[index].player2.rating = 1724.0896031808043;
+        //         data[index].player2.deviation = 231.84253471537815;
+        //         // data[index].player2.clanId = 5;
+        //         data[index].match.id2 = 176;
+        //         console.log('B1 ' +  JSON.stringify(data[index].player2.toString()));
+        //     }
+        // }
+      }
         
     //     else if(data[index].player1.id == 176 || data[index].player2.id == 176){
     //         if(data[index].player1.id == 176){
@@ -322,6 +330,10 @@ export class AddResultComponent implements OnInit {
   }
 
   private rollBackPlayerRatings(): void{
+
+    this.loadPlayerStructure();
+
+
     for(var i: number = 0; i < this.players.length; i++){
       // find the actual player record
       var recordReference: string = "players/"+this.players[i].id;
