@@ -23,7 +23,7 @@ export class AddResultComponent implements OnInit {
     private competitionRound: string = "General";
     private playerOne: Player = new Player();
     private playerTwo: Player = new Player();
-    private player1Won: any;
+    private player1Won: any = true;
     private draw: any;
     private matchList: Match[] = [];// initialise here
     private displayMatchList: any[] = [];// holds match and supporting players for sub window to display
@@ -142,6 +142,14 @@ export class AddResultComponent implements OnInit {
     this.displayMatchList = [];
 
     // // repair work
+    // removing entries from end of list!
+    // var rep: any[] = [];
+    // for(var index:number = 0; index < data.length - 2; index++){
+    //     rep.push(data[index]);
+
+    // }
+    //  data = rep;
+    // adjusting results
     // for(var index:number = 0; index < data.length; index++){
     //     if(data[index].player1.id == 209 && data[index].player2.id == 139){
 

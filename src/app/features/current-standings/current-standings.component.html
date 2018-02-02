@@ -1,4 +1,5 @@
 <div  id="maindiv" *ngIf="gridRows" style="margin-left: 20px; margin-top: 20px"> 
+    <button (click)="exportAsCsv()">Force Export as CSV</button>
     <ag-grid-angular #agGrid style="width:95%; height: 850px"
                      class="ag-fresh"
                      [ngStyle]="gridStyle"

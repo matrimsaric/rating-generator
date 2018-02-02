@@ -33,6 +33,7 @@ import { GameReportComponent } from './features/game-report/game-report.componen
 import { CurrentStandingsComponent } from './features/current-standings/current-standings.component';
 import { PlayerReportComponent } from './features/player-report/player-report.component';
 import { ControlPanelComponent } from './features/admin/control-panel/control-panel.component';
+import { BatchEntryComponent } from './features/batch-entry/batch-entry.component';
 
 
 // must export the firebase config
@@ -59,7 +60,8 @@ export const firebaseConfig = {
     GameReportComponent,
     CurrentStandingsComponent,
     PlayerReportComponent,
-    ControlPanelComponent
+    ControlPanelComponent,
+    BatchEntryComponent
   ],
   imports: [
     BrowserModule,

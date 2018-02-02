@@ -1,0 +1,7 @@
+<button md-mini-fab class="lookupBtn" (click)="prepare()" title="{{'PREPARE' | translate: lang}}">
+    <span class="glyphicon glyphicon-floppy-disk" id="prepare"  aria-hidden="true"  ></span>
+</button>
+<button md-mini-fab class="lookupBtn" (click)="commit()" title="{{'COMMIT' | translate: lang}}">
+    <span class="glyphicon glyphicon-floppy-disk" id="commi"  aria-hidden="true"  ></span>
+</button><br/>
+<textarea rows="20" cols="200" [(ngModel)]="textEntry">{{textEntry}}</textarea>

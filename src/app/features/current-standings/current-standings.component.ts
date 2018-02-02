@@ -55,6 +55,9 @@ export class CurrentStandingsComponent implements OnInit {
           enableSorting: true,
           enableFilter: true,
           groupHeaders: true,
+          rowSelection: 'multiple',
+          suppressRowClickSelection: true,
+          headerCheckboxSelection: true,
           toolPanelSuppressGroups: true,
           toolPanelSuppressValues: true,
           debug: false,
@@ -65,6 +68,13 @@ export class CurrentStandingsComponent implements OnInit {
       
   }
 
+  private exportAsCsv(): void{
+    
+    var allData: string = "";
+    this.gridOptions.api.exportDataAsCsv(null);
+    
+  }
+  
   private loadPlayerBase(): void{
     // load individual players and add to base list array
     var empty: boolean = false;
@@ -72,7 +82,7 @@ export class CurrentStandingsComponent implements OnInit {
     var tempArray: any[] = [];
 
 
-    for(var i: number = 1; i < 292; i++){
+    for(var i: number = 1; i < 296; i++){
         
         //playerCount += 1;
         var recordReference: string = "players/"+i;
@@ -97,7 +107,7 @@ export class CurrentStandingsComponent implements OnInit {
 
                 this.gridRows.push(newRow);
 
-                if(play.id == 291){
+                if(play.id == 295){
                     this.setupRowData();
                 }
             }
@@ -122,19 +132,19 @@ export class CurrentStandingsComponent implements OnInit {
                 field: 'id',
                 width: 60,
             },
-            {
-                headerName: this._translate.translate("DISCORD_ID"),
-                field: "discord",
-                editable: false,
-                width: 150,
-            },
-            {
-                headerName: this._translate.translate("CLAN"),
-                field: "clan",
-                editable: false,
-                cellRenderer: ClanLogoRenderer,
-                width: 90,
-            },
+            // {
+            //     headerName: this._translate.translate("DISCORD_ID"),
+            //     field: "discord",
+            //     editable: false,
+            //     width: 150,
+            // },
+            // {
+            //     headerName: this._translate.translate("CLAN"),
+            //     field: "clan",
+            //     editable: false,
+            //     cellRenderer: ClanLogoRenderer,
+            //     width: 90,
+            // },
             {
                 headerName: this._translate.translate("TAG"),
                 field: "tag",
@@ -152,25 +162,25 @@ export class CurrentStandingsComponent implements OnInit {
                 field: "deviation",
                 editable: false,
                 width: 120,
-            },
-            {
-                headerName: "+/-",
-                field: "adjust",
-                editable: false,
-                width: 120
-            },
-            {
-                headerName: this._translate.translate("PLACEMENT"),
-                field: "globalPosition",
-                editable: false,
-                width: 120,
-            },
-            {
-                headerName: this._translate.translate("95_BAND"),
-                field: "ninetyFive",
-                editable: false,
-                width: 120,
-            }
+             }//,
+            // {
+            //     headerName: "+/-",
+            //     field: "adjust",
+            //     editable: false,
+            //     width: 120
+            // },
+            // {
+            //     headerName: this._translate.translate("PLACEMENT"),
+            //     field: "globalPosition",
+            //     editable: false,
+            //     width: 120,
+            // },
+            // {
+            //     headerName: this._translate.translate("95_BAND"),
+            //     field: "ninetyFive",
+            //     editable: false,
+            //     width: 120,
+            // }
         ];
     }
 

@@ -10,6 +10,7 @@ import { LoginComponent } from '../../features/admin/login/login.component';
 import { CurrentStandingsComponent } from '../../features/current-standings/current-standings.component';
 import { PlayerReportComponent } from '../../features/player-report/player-report.component';
 import { ControlPanelComponent } from '../../features/admin/control-panel/control-panel.component';
+import { BatchEntryComponent } from '../../features/batch-entry/batch-entry.component';
 
 
 const appRoutes: Routes = [
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
     { path: 'playerreport', component: PlayerReportComponent },
     { path: 'currentstandings', component: CurrentStandingsComponent },
     { path: 'controlpanel', component: ControlPanelComponent },
+    { path: 'batchentry', component: BatchEntryComponent },
     { path: 'login', component: LoginComponent },
     { path: '**', component: HomeComponent }// will show when routing fails
 ];
